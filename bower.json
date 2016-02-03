@@ -1,0 +1,22 @@
+{
+  "name": "newscache",
+  "description": "News App.",
+  "version": "1.0-SNAPSHOT",
+  "dependencies": {
+    "angular": "1.4.7",
+    "angular-animate": "1.4.x",
+    "angular-bootstrap": "1.1.2",
+    "angular-messages": "1.4.7",
+    "angular-mocks": "1.4.x",
+    "angular-resource": "1.4.x",
+    "angular-route": "1.4.x",
+    "api-check": "~7.5.0",
+    "bootstrap": "~3.3.6",
+    "jquery": "~2.1.4"
+  },
+  "devDependencies": {
+    "jasmine-sinon": "~0.4.0",
+    "es5-shim": "~4.2.0",
+    "bardjs": "~0.1.8"
+  }
+}

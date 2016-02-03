@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="newscache">
+<head>
+    <base href="/newscache/" />
+    <title>News Cache</title>
+    <link href="./bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="./css/newscache.css" rel="stylesheet" />
+    <script src="./bower_components/api-check/dist/api-check.js"></script>
+    <script src="./bower_components/angular/angular.js"></script>
+    <script src="./bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="./bower_components/angular-route/angular-route.js"></script>
+    <script src="./bower_components/angular-resource/angular-resource.js"></script>
+    <script src="./bower_components/angular-messages/angular-messages.js"></script>
+
+    <script src="./partials.min.js"></script>
+    <script src="./newscache/newscache.js"></script>
+    <script src="./newscache/config/constants.config.js"></script>
+
+    <!--services-->
+    <script src="./newscache/service/service.config.js"></script>
+
+
+    <!--routes-->
+    <script src="./newscache/route/route.config.js"></script>
+
+
+    <!--controllers-->
+    <script src="./newscache/controller/controller.config.js"></script>
+
+
+    <!--directives-->
+    <script src="./newscache/directive/directive.config.js"></script>
+
+
+</head>
+<body>
+<div class="view-container">
+    <div ng-view class="view-frame"></div>
+</div>
+</body>
+</html>

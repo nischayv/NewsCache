@@ -1,0 +1,46 @@
+server:
+    port: 8080
+
+spring:
+    profiles:
+        active: dev
+    datasource:
+        dataSourceClassName: org.h2.jdbcx.JdbcDataSource
+        url: jdbc:h2:mem:classes
+        database: H2
+        driverClassName: org.h2.Driver
+        username: testuser
+        password: hellopwd
+        database-platform: org.hibernate.dialect.H2Dialect
+        databaseName: test
+    jpa:
+        database-platform: org.hibernate.dialect.H2Dialect
+        database: H2
+        openInView: false
+        show_sql: false
+        generate-ddl: false
+        hibernate:
+            ddl-auto: none
+            naming-strategy: org.hibernate.cfg.EJB3NamingStrategy
+            search.default.directory_provider: filesystem
+        properties:
+            hibernate.cache.use_second_level_cache: false
+            hibernate.cache.region.factory_class: org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory
+            hibernate.cache.use_query_cache: false
+            hibernate.generate_statistics: false
+
+    security:
+        sessions: always
+
+    jmx:
+        enabled: false
+
+endpoints:
+    enabled: false
+
+liquibase:
+    changeLog: classpath:/db/master.xml
+
+resources:
+    projectRoot: Users/nischay/IdeaProjects/G02_NewsCache/
+

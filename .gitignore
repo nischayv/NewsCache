@@ -1,0 +1,8 @@
+.gradle
+.idea
+build/**
+gradle/**
+*.iml
+node_modules/**
+src/main/resources/static/bower_components
+npm-debug.log

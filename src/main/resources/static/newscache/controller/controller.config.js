@@ -3,6 +3,6 @@
 
     angular
         .module('newscache.controller', [
-            //All controller modules names go here
+            'newscache.controller.navbar'
         ]);
 }());

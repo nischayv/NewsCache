@@ -3,6 +3,6 @@
 
     angular
         .module('newscache.directive', [
-            //All directive module names go here
+            'newscache.directive.navbar'
         ]);
 }());

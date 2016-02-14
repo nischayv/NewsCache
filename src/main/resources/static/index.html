@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html ng-app="newscache">
 <head>
     <base href="/newscache/" />
@@ -13,6 +13,7 @@
     <script src="./bower_components/angular-messages/angular-messages.js"></script>
 
     <script src="./partials.min.js"></script>
+    <!--<script src="./all.min.js"></script>-->
     <script src="./newscache/newscache.js"></script>
     <script src="./newscache/config/constants.config.js"></script>
 
@@ -26,14 +27,16 @@
 
     <!--controllers-->
     <script src="./newscache/controller/controller.config.js"></script>
-
+    <script src="./newscache/controller/navbar.controller.js"></script>
 
     <!--directives-->
     <script src="./newscache/directive/directive.config.js"></script>
+    <script src="./newscache/directive/navbar.directive.js"></script>
 
 
 </head>
 <body>
+<div navbar-directive></div>
 <div class="view-container">
     <div ng-view class="view-frame"></div>
 </div>

@@ -6,3 +6,6 @@ gradle/**
 node_modules/**
 src/main/resources/static/bower_components
 npm-debug.log
+src/main/resources/static/all.min.js
+src/main/resources/static/partials.min.js
+src/main/resources/static/all.min.js.map

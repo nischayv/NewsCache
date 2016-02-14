@@ -6,6 +6,8 @@ var uglify = require('gulp-uglify');
 var bytediff = require('gulp-bytediff');
 var concat = require('gulp-concat');
 var sourcemaps = require('gulp-sourcemaps');
+var jscs = require('gulp-jscs');
+var livereload = require('gulp-livereload');
 var gutil = require('gulp-util');
 var bower = require('gulp-bower');
 var ngHtml2Js = require('gulp-ng-html2js');
@@ -23,16 +25,18 @@ var pkg = {
             './src/main/resources/static/newscache/service/service.config.js',
             //controller module
             './src/main/resources/static/newscache/controller/controller.config.js',
+            './src/main/resources/static/newscache/controller/navbar.controller.js',
             //route module
             './src/main/resources/static/newscache/route/route.config.js',
             //directive module
-            './src/main/resources/static/newscache/directive/directive.config.js'
+            './src/main/resources/static/newscache/directive/directive.config.js',
+            './src/main/resources/static/newscache/directive/navbar.directive.js'
         ],
         html: [
             './src/main/resources/static/newscache/template/denied.html',
             './src/main/resources/static/newscache/template/error.html',
-            './src/main/resources/static/newscache/template/login.html'
-
+            './src/main/resources/static/newscache/template/login.html',
+            './src/main/resources/static/newscache/template/navbar.html'
         ]
     }
 };

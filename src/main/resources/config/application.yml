@@ -44,3 +44,5 @@ liquibase:
 resources:
     projectRoot: Users/nischay/IdeaProjects/G02_NewsCache/
 
+app:
+    version: 0.0.1

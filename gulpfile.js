@@ -23,6 +23,7 @@ var pkg = {
             './src/main/resources/static/newscache/config/constants.config.js',
             //service module
             './src/main/resources/static/newscache/service/service.config.js',
+            './src/main/resources/static/newscache/service/navbar.service.js',
             //controller module
             './src/main/resources/static/newscache/controller/controller.config.js',
             './src/main/resources/static/newscache/controller/navbar.controller.js',

@@ -3,6 +3,6 @@
 
     angular
         .module('newscache.service', [
-         //All the service modules go here
+        'newscache.navbar.service'
         ]);
 }());

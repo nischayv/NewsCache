@@ -1,5 +1,9 @@
 package com.example.config;
 
+import com.example.controller.NavbarSearchController;
+import com.example.repo.InterestRepo;
+import com.example.service.InterestServiceImpl;
+import com.example.service.interfaces.InterestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -21,8 +25,8 @@ public class WebConfig extends WebMvcConfigurerAdapter{
     @Value("${resources.projectRoot:}")
     private String projectRoot;
 
-//    @Value("${app.version:}")
-//    private String appVersion;
+    @Value("${app.version:}")
+    private String appVersion;
 
     private String getProjectRootRequired() {
         Assert.state(this.projectRoot != null, "Please set \"resources.projectRoot\" in application.yml");
@@ -42,11 +46,11 @@ public class WebConfig extends WebMvcConfigurerAdapter{
         String location = devMode ? "file:///" + getProjectRootRequired() + "/src/main/resources/static/" : "classpath:static/";
         Integer cachePeriod = devMode ? 0 : null;
         boolean useResourceCache = !devMode;
-//        String version = getApplicationVersion();
+        String version = getApplicationVersion();
 
         AppCacheManifestTransformer appCacheTransformer = new AppCacheManifestTransformer();
         VersionResourceResolver versionResolver = new VersionResourceResolver()
-                .addFixedVersionStrategy("1.0", "/**/*.js", "/**/*.map")
+                .addFixedVersionStrategy(version, "/**/*.js", "/**/*.map")
                 .addContentVersionStrategy("/**");
 
         registry.addResourceHandler("/**")
@@ -57,7 +61,7 @@ public class WebConfig extends WebMvcConfigurerAdapter{
                 .addTransformer(appCacheTransformer);
     }
 
-//    protected String getApplicationVersion() {
-//        return this.env.acceptsProfiles("development") ? "dev" : this.appVersion;
-//    }
+    protected String getApplicationVersion() {
+        return this.env.acceptsProfiles("development") ? "dev" : this.appVersion;
+    }
 }

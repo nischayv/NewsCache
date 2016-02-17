@@ -17,7 +17,7 @@ public class InterestServiceImpl implements InterestService{
 
     @Override
     public List<String> findAllInterestNames() {
-        List<String> list =  new LinkedList<String>();
+        List<String> list =  new LinkedList<>();
         for(Interest interest: interestRepo.findAll()) {
             list.add(interest.getName());
         }

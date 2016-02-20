@@ -67,7 +67,6 @@ public class RepoConfig implements EnvironmentAware{
         config.setInitializationFailFast(true);
         config.setConnectionTestQuery(propertyResolver.getProperty("connectionTestQuery"));
         config.setUsername(propertyResolver.getProperty("username"));
-        //config.setPassword(getSecurePassword());
         config.setPassword(propertyResolver.getProperty("password"));
         config.setIdleTimeout(getIdleTimeout());
         config.setMaxLifetime(getMaxLife());
@@ -85,7 +84,7 @@ public class RepoConfig implements EnvironmentAware{
     @Bean(name = {"org.springframework.boot.autoconfigure.AutoConfigurationUtils.basePackages"})
     public List<String> getBasePackages() {
         List<String> basePackages = new ArrayList<>();
-        basePackages.add("edu.iastate.sa");
+        basePackages.add("com.example");
         return basePackages;
     }
 

@@ -12,7 +12,7 @@
     function NavbarController(NavbarService, $q, $scope) {
         var vm = this;
         vm.startsWith = startsWith;
-      //  vm.search = findInterest;
+        vm.search = findInterest;
         vm.interest = '';
         vm.interestList = [];
         activate();
@@ -39,6 +39,16 @@
 
         function startsWith (interest, viewValue) {
             return interest.substr(0, viewValue.length).toLowerCase() == viewValue.toLowerCase();
+        }
+
+        function findInterest () {
+            return NavbarService.findInterest(vm.interest)
+                //.then(function (data) {
+                //
+                //})
+                .catch(function(error) {
+                    vm.errors = error;
+                });
         }
     }
 }());

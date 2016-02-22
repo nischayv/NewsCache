@@ -24,11 +24,14 @@ var pkg = {
             //service module
             './src/main/resources/static/newscache/service/service.config.js',
             './src/main/resources/static/newscache/service/navbar.service.js',
+            './src/main/resources/static/newscache/service/interest.service.js',
             //controller module
             './src/main/resources/static/newscache/controller/controller.config.js',
             './src/main/resources/static/newscache/controller/navbar.controller.js',
+            './src/main/resources/static/newscache/controller/interest.controller.js',
             //route module
             './src/main/resources/static/newscache/route/route.config.js',
+            './src/main/resources/static/newscache/route/interest.routes.js',
             //directive module
             './src/main/resources/static/newscache/directive/directive.config.js',
             './src/main/resources/static/newscache/directive/navbar.directive.js'
@@ -37,7 +40,8 @@ var pkg = {
             './src/main/resources/static/newscache/template/denied.html',
             './src/main/resources/static/newscache/template/error.html',
             './src/main/resources/static/newscache/template/login.html',
-            './src/main/resources/static/newscache/template/navbar.html'
+            './src/main/resources/static/newscache/template/navbar.html',
+            './src/main/resources/static/newscache/template/interest.html'
         ]
     }
 };

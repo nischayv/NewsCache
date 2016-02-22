@@ -8,12 +8,13 @@
         ])
         .factory('NavbarService', NavbarService);
 
-    NavbarService.$inject = ['$resource', '$q'];
+    NavbarService.$inject = ['$resource', '$q', '$location'];
 
-    function NavbarService($resource, $q) {
+    function NavbarService($resource, $q, $location) {
 
         return {
-            loadInterests: loadInterests
+            loadInterests: loadInterests,
+            findInterest: findInterest
         };
 
         function loadInterests() {
@@ -29,6 +30,26 @@
             function success(data) {
                 console.log(data);
                 return data;
+            }
+
+            function fail (error) {
+                console.log(error);
+                return $q.reject(error);
+            }
+        }
+
+        function findInterest(data) {
+            return $resource('./api/navbar_search/search/' + data, {}, {
+                execute: {
+                    method: 'GET'
+                }
+            }).execute().$promise
+                .then(success)
+                .catch(fail);
+
+            function success(data) {
+                console.log(data);
+                $location.path('/interest');
             }
 
             function fail (error) {

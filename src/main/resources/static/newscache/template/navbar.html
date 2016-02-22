@@ -12,7 +12,7 @@
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="nav navbar-nav navbar-right">
                 <div class="btn-group" uib-dropdown is-open="status.isopen">
-                    <button type="button" id="settings" class="btn btn-primary" style="margin-top: 7px" uib-dropdown-toggle ng-disabled="disabled"><i class="glyphicon glyphicon-cog"></i> </button>
+                    <button type="button" id="settings" class="btn btn-primary" style="margin-top: 7px"><i class="glyphicon glyphicon-cog"></i> </button>
                     <ul uib-dropdown-menu role="menu" aria-labelledby="settings">
                         <li role="menuitem"><a href="#">Setting 1</a></li>
                         <li role="menuitem"><a href="#">Setting 2</a></li>
@@ -26,7 +26,7 @@
                 <div class="input-group" >
                     <input type="text" size="40" class="form-control" placeholder="Search Interests" ng-model="vm.interest" uib-typeahead="interest for interest in vm.interestList | filter:$viewValue:vm.startsWith | limitTo:8" autocomplete="off"/>
                     <div class="input-group-btn" id="searchButton">
-                        <button class="btn btn-primary" type="submit" ><i class="glyphicon glyphicon-search"></i></button>
+                        <button class="btn btn-primary" type="submit" ng-click="vm.search()"><i class="glyphicon glyphicon-search"></i></button>
                     </div>
                 </div>
             </form>

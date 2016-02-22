@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface InterestService {
     List<String> findAllInterestNames();
+    Interest findByName(String name);
 }

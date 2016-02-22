@@ -23,4 +23,9 @@ public class InterestServiceImpl implements InterestService{
         }
         return list;
     }
+
+    @Override
+    public Interest findByName(String name) {
+        return interestRepo.findByName(name);
+    }
 }

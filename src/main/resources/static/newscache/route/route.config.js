@@ -3,6 +3,6 @@
 
     angular
         .module('newscache.route', [
-            //All route modules go here as dependencies......
+            'newscache.route.interest'
         ]);
 }());

@@ -49,7 +49,7 @@
 
             function success(data) {
                 console.log(data);
-                $location.path('/interest');
+                $location.path('/interest').search({param: data.name});
             }
 
             function fail (error) {

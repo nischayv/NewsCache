@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('newscache.interest.service', [
+        .module('newscache.service.interest', [
             'ngResource'
         ])
         .factory('InterestService', InterestService);

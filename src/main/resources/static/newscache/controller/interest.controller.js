@@ -6,7 +6,7 @@
 
     angular
         .module('newscache.controller.interest', [
-
+            'newscache.service.interest'
         ])
         .controller('InterestController', InterestController);
 

@@ -11,8 +11,8 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="nav navbar-nav navbar-right">
-                <div class="btn-group" uib-dropdown is-open="status.isopen">
-                    <button type="button" id="settings" class="btn btn-primary" style="margin-top: 7px"><i class="glyphicon glyphicon-cog"></i> </button>
+                <div class="btn-group" uib-dropdown>
+                    <button type="button" id="settings" class="btn btn-primary" uib-dropdown-toggle ng-disabled="disabled" style="margin-top: 7px"><i class="glyphicon glyphicon-cog"></i> </button>
                     <ul uib-dropdown-menu role="menu" aria-labelledby="settings">
                         <li role="menuitem"><a href="#">Setting 1</a></li>
                         <li role="menuitem"><a href="#">Setting 2</a></li>

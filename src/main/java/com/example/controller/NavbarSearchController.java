@@ -1,11 +1,14 @@
 package com.example.controller;
 
+import com.example.entity.Interest;
 import com.example.service.interfaces.InterestService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/navbar_search")
@@ -21,6 +24,12 @@ public class NavbarSearchController {
 
     @RequestMapping(value = "/search/{interestName}",  method = RequestMethod.GET)
     public ResponseEntity<?> findInterest(@PathVariable String interestName) throws JsonProcessingException{
-        return new ResponseEntity<>(interestService.findByName(interestName), HttpStatus.OK);
+        Interest interest = interestService.findByName(interestName);
+        if(interest != null) {
+            return new ResponseEntity<>(interest, HttpStatus.OK);
+        }
+        else {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
 }

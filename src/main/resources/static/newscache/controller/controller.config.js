@@ -3,6 +3,7 @@
 
     angular
         .module('newscache.controller', [
-            'newscache.controller.navbar'
+            'newscache.controller.navbar',
+            'newscache.controller.interest'
         ]);
 }());

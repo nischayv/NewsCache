@@ -5,24 +5,15 @@
 }
 
 .jumbotron{
-    position: relative;
-    background-image: url(../img/starwars.jpg);
+    background-image: url('../img/starwars.jpg');
     background-size: cover;
-    overflow: hidden;
-    height: 400px;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .subscribe{
-    margin-right: 20%;
-    margin-left: 20%;
-    text-align: center;
-    padding-top: 0px;
-}
-
-.alignleft{
-    float: right;
-}
-
-.alignright{
-    float: left;
+    display: inline-block;
+    padding: 5% 5% 20%;
+    background-color: rgba(245, 245, 220, 0.6);
+    margin-bottom: 10%;
 }

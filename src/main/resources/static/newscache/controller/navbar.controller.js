@@ -15,6 +15,7 @@
         vm.search = findInterest;
         vm.interest = '';
         vm.interestList = [];
+        vm.errors = {};
         activate();
 
         function activate() {

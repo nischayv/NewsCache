@@ -6,9 +6,23 @@
 
 .jumbotron{
     position: relative;
-    background-image: url(../img/starwars.jpeg);
-    margin-right: 20%;
-    margin-left: 20%;
+    background-image: url(../img/starwars.jpg);
     background-size: cover;
     overflow: hidden;
+    height: 400px;
+}
+
+.subscribe{
+    margin-right: 20%;
+    margin-left: 20%;
+    text-align: center;
+    padding-top: 0px;
+}
+
+.alignleft{
+    float: right;
+}
+
+.alignright{
+    float: left;
 }

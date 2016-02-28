@@ -44,9 +44,6 @@
 
         function findInterest () {
             return NavbarService.findInterest(vm.interest)
-                //.then(function (data) {
-                //
-                //})
                 .catch(function(error) {
                     vm.errors = error;
                 });

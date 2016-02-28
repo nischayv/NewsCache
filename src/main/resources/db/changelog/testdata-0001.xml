@@ -11,18 +11,22 @@
         <insert tableName="interest">
             <column name="id">100</column>
             <column name="name">Star Wars</column>
+            <column name="image">../img/starwars.jpg</column>
         </insert>
         <insert tableName="interest">
             <column name="id">101</column>
             <column name="name">Football</column>
+            <column name="image">nothing</column>
         </insert>
         <insert tableName="interest">
             <column name="id">102</column>
             <column name="name">Anime</column>
+            <column name="image">nothing</column>
         </insert>
         <insert tableName="interest">
             <column name="id">103</column>
             <column name="name">Tv Shows</column>
+            <column name="image">nothing</column>
         </insert>
     </changeSet>
 

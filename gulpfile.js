@@ -33,7 +33,8 @@ var pkg = {
             './src/main/resources/static/newscache/route/interest.routes.js',
             //directive module
             './src/main/resources/static/newscache/directive/directive.config.js',
-            './src/main/resources/static/newscache/directive/navbar.directive.js'
+            './src/main/resources/static/newscache/directive/navbar.directive.js',
+            './src/main/resources/static/newscache/directive/back_img.directive.js'
         ],
         html: [
             './src/main/resources/static/newscache/template/denied.html',

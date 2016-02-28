@@ -29,7 +29,7 @@ public class NavbarSearchController {
             return new ResponseEntity<>(interest, HttpStatus.OK);
         }
         else {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 }

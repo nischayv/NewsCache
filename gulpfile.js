@@ -6,7 +6,6 @@ var uglify = require('gulp-uglify');
 var bytediff = require('gulp-bytediff');
 var concat = require('gulp-concat');
 var sourcemaps = require('gulp-sourcemaps');
-var jscs = require('gulp-jscs');
 var livereload = require('gulp-livereload');
 var gutil = require('gulp-util');
 var bower = require('gulp-bower');

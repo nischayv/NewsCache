@@ -4,3 +4,11 @@
     margin-right: 5%;
 }
 
+.jumbotron{
+    position: relative;
+    background-image: url(../img/starwars.jpeg);
+    margin-right: 20%;
+    margin-left: 20%;
+    background-size: cover;
+    overflow: hidden;
+}

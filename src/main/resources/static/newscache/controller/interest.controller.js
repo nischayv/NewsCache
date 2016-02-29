@@ -15,7 +15,7 @@
     function InterestController(InterestService, $q, $scope, $routeParams) {
         var vm = this;
         vm.interestName = $routeParams.param;
-        vm.interest = {};
+        vm.interest = {image: './img/starwars.jpg'};
         vm.errors = {};
         activate();
 

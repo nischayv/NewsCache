@@ -11,7 +11,7 @@
         <insert tableName="interest">
             <column name="id">100</column>
             <column name="name">Star Wars</column>
-            <column name="image">../img/starwars.jpg</column>
+            <column name="image">./img/starwars.jpg</column>
         </insert>
         <insert tableName="interest">
             <column name="id">101</column>

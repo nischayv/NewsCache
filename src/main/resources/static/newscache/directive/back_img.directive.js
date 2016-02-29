@@ -3,17 +3,24 @@
 
     angular
         .module('newscache.directive.back_img', [
+            'newscache.controller.interest',
+            'newscache.service.interest',
+            'newscache.templates'
         ])
         .directive('backImgDirective', BackImgDirective);
 
-    function BackImgDirective() {
+    BackImgDirective.$inject = ['$timeout'];
+
+    function BackImgDirective($timeout) {
         return {
             restrict: 'AE',
             scope: {
                 url: '='
             },
             link: function(scope, elem) {
-                elem.css('background-image', url(scope.url));
+                $timeout(function() {
+                    elem.css('background-image', "url('" + scope.url +"')");
+                }, 0);
             }
         };
     }

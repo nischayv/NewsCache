@@ -13,6 +13,6 @@
 .subscribe{
     display: inline-block;
     padding: 5% 5% 20%;
-    background-color: rgba(245, 245, 220, 0.6);
+    background-color: rgba(245, 245, 220, 0.9);
     margin-bottom: 10%;
 }

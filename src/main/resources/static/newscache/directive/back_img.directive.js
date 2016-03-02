@@ -3,9 +3,6 @@
 
     angular
         .module('newscache.directive.back_img', [
-            'newscache.controller.interest',
-            'newscache.service.interest',
-            'newscache.templates'
         ])
         .directive('backImgDirective', BackImgDirective);
 
@@ -19,7 +16,7 @@
             },
             link: function(scope, elem) {
                 $timeout(function() {
-                    elem.css('background-image', "url('" + scope.url +"')");
+                    elem.css('background-image', "url('./img/" + scope.url +".jpg')");
                 }, 0);
             }
         };

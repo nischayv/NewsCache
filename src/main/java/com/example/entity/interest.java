@@ -36,13 +36,4 @@ public class Interest implements java.io.Serializable{
     public void setName(String name) {
         this.name = name;
     }
-
-    @Column(name="image")
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
 }

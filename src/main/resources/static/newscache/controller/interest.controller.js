@@ -1,6 +1,3 @@
-/**
- * Created by nischay on 20/02/2016.
- */
 (function() {
     'use strict';
 
@@ -17,6 +14,7 @@
         vm.interestName = $routeParams.param;
         vm.interest = {};
         vm.errors = {};
+        vm.convert = convert;
         activate();
 
         function activate() {
@@ -38,6 +36,10 @@
                 .catch(function(error) {
                     vm.errors = error;
                 });
+        }
+
+        function convert(str) {
+            return str.replace(/\s+/g, '').toLowerCase();
         }
 
     }

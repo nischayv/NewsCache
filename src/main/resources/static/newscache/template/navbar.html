@@ -24,7 +24,7 @@
             </ul>
             <form class="navbar-form" role="search" id="search">
                 <div class="input-group" >
-                    <input type="text" size="40" class="form-control" placeholder="Search Interests" ng-model="vm.interest" uib-typeahead="interest for interest in vm.interestList | filter:$viewValue:vm.startsWith | limitTo:8" autocomplete="off"/>
+                    <input type="text" size="40" class="form-control" placeholder="Search Interests" ng-model="vm.interestName" uib-typeahead="interestName for interestName in vm.interestList | filter:$viewValue:vm.startsWith | limitTo:8" autocomplete="off"/>
                     <div class="input-group-btn" id="searchButton">
                         <button class="btn btn-primary" ng-click="vm.search()"><i class="glyphicon glyphicon-search"></i></button>
                     </div>

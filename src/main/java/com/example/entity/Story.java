@@ -1,6 +1,8 @@
 package com.example.entity;
 
 import javax.persistence.*;
+import java.util.LinkedList;
+import java.util.List;
 
 @Entity
 @Table(name = "story")
@@ -10,8 +12,12 @@ public class Story {
     private String url;
     private String image;
     private String description;
+    private String interestName;
+    private List comments;
 
-    public Story() {}
+    public Story() {
+        comments = new LinkedList<Comment>();
+    }
 
     @Id
     @Column(name = "id", unique = true, nullable = false)
@@ -49,5 +55,22 @@ public class Story {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Column(name = "interestName")
+    public String getInterestName() {
+        return interestName;
+    }
+
+    public void setInterestName(String interestName) {
+        this.interestName = interestName;
+    }
+
+    public List getComments() {
+        return comments;
+    }
+
+    public void setComments(List comments) {
+        this.comments = comments;
     }
 }

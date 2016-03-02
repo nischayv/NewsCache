@@ -8,19 +8,19 @@
     <property name="now" value="current_timestamp" dbms="postgresql,db2"/>
 
     <changeSet id="test" author="nischayv">
-        <insert tableName="interest">
+        <insert tableName="interestName">
             <column name="id">100</column>
             <column name="name">Star Wars</column>
         </insert>
-        <insert tableName="interest">
+        <insert tableName="interestName">
             <column name="id">101</column>
             <column name="name">Football</column>
         </insert>
-        <insert tableName="interest">
+        <insert tableName="interestName">
             <column name="id">102</column>
             <column name="name">Anime</column>
         </insert>
-        <insert tableName="interest">
+        <insert tableName="interestName">
             <column name="id">103</column>
             <column name="name">Tv Shows</column>
         </insert>

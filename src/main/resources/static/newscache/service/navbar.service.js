@@ -38,6 +38,8 @@
         }
 
         function findInterest(data) {
+            console.log('In service');
+            console.log(data);
             return $resource('./api/navbar_search/search/' + data, {}, {
                 execute: {
                     method: 'GET'

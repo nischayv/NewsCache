@@ -13,7 +13,7 @@
         var vm = this;
         vm.startsWith = startsWith;
         vm.search = findInterest;
-        vm.interest = '';
+        vm.interestName = '';
         vm.interestList = [];
         vm.errors = {};
         activate();
@@ -43,7 +43,7 @@
         }
 
         function findInterest () {
-            return NavbarService.findInterest(vm.interest)
+            return NavbarService.findInterest(vm.interestName)
                 .catch(function(error) {
                     vm.errors = error;
                 });

@@ -14,6 +14,7 @@
         vm.interestName = $routeParams.param;
         vm.interest = {};
         vm.errors = {};
+        vm.stories = [];
         vm.convert = convert;
         activate();
 
@@ -40,6 +41,10 @@
 
         function convert(str) {
             return str.replace(/\s+/g, '').toLowerCase();
+        }
+
+        function loadStories() {
+
         }
 
     }

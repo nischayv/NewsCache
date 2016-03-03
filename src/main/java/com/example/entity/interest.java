@@ -9,7 +9,6 @@ public class Interest implements java.io.Serializable{
 
     private Long id;
     private String name;
-    private String image;
 
     public Interest() {}
 

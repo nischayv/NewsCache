@@ -22,7 +22,9 @@
             return loadInterest()
                 .then(function () {
                     console.log('Loaded the interest');
+                    return $q.resolve();
                 })
+                .then(loadStories)
                 .catch(function (error) {
                     vm.errors = error;
                 });
@@ -44,7 +46,13 @@
         }
 
         function loadStories() {
-
+            return InterestService.loadStories(vm.interestName)
+                .then(function (data) {
+                    console.log(data);
+                })
+                .catch(function(error) {
+                    vm.errors = error;
+                });
         }
 
     }

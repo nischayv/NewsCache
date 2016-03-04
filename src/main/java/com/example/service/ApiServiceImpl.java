@@ -13,7 +13,7 @@ public class ApiServiceImpl implements ApiService{
     private StoryRepo storyRepo;
 
     @Override
-    public void loadAllStories() {
+    public void loadAllStories(String interestName) {
         RestTemplate restTemplate = new RestTemplate();
     }
 }

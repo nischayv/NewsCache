@@ -1,17 +1,21 @@
 package com.example.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.LinkedList;
 import java.util.List;
 
 @Entity
 @Table(name = "story")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Story {
 
     private Long id;
     private String url;
-    private String image;
-    private String description;
+    private String iurl;
+    private String kwic;
+    private String title;
     private String interestName;
 //    private List comments;
 
@@ -39,22 +43,22 @@ public class Story {
         this.url = url;
     }
 
-    @Column(name = "image")
-    public String getImage() {
-        return image;
+    @Column(name = "iurl")
+    public String getIurl() {
+        return iurl;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setIurl(String iurl) {
+        this.iurl = iurl;
     }
 
-    @Column(name = "description")
-    public String getDescription() {
-        return description;
+    @Column(name = "kwic")
+    public String getKwic() {
+        return kwic;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setKwic(String kwic) {
+        this.kwic = kwic;
     }
 
     @Column(name = "interestName")
@@ -66,7 +70,16 @@ public class Story {
         this.interestName = interestName;
     }
 
-//    @OneToMany(mappedBy="story")
+    @Column(name = "title")
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    //    @OneToMany(mappedBy="story")
 //    public List getComments() {
 //        return comments;
 //    }

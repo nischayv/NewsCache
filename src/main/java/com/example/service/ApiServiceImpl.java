@@ -1,8 +1,10 @@
 package com.example.service;
 
+import com.example.controller.util.Constants;
 import com.example.dto.StoryList;
 import com.example.repo.StoryRepo;
 import com.example.service.interfaces.ApiService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -18,12 +20,12 @@ public class ApiServiceImpl implements ApiService{
     private StoryRepo storyRepo;
 
     @Override
-    public void loadAllStories(String interestName) {
+    public void loadAllStories(String interestName) throws JsonProcessingException {
         RestTemplate restTemplate = new RestTemplate();
         Map<String, String> map = new HashMap<>();
         map.put("interestName", interestName);
-        map.put("key","AjFzRJttLvOXBpb3BLsR@Qq-yp8_");
-        String url = "http://www.faroo.com/api?q={interestName}&start=1&length=10&l=en&src=news&i=false&f=json&key={key}";
-        ResponseEntity<StoryList> StoryListEntity = restTemplate.getForEntity(url, StoryList.class, map);
+        map.put("key", Constants.getFarooKey());
+        ResponseEntity<StoryList> StoryListEntity = restTemplate.getForEntity(Constants.getFarooUrl(), StoryList.class, map);
+        String test="";
     }
 }

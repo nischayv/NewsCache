@@ -1,6 +1,7 @@
 package com.example.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 import java.util.LinkedList;
@@ -9,12 +10,16 @@ import java.util.List;
 @Entity
 @Table(name = "story")
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Story {
+public class Story implements java.io.Serializable{
 
     private Long id;
+    @JsonProperty("url")
     private String url;
+    @JsonProperty("iurl")
     private String iurl;
+    @JsonProperty("kwic")
     private String kwic;
+    @JsonProperty("title")
     private String title;
     private String interestName;
 //    private List comments;
@@ -79,12 +84,4 @@ public class Story {
         this.title = title;
     }
 
-    //    @OneToMany(mappedBy="story")
-//    public List getComments() {
-//        return comments;
-//    }
-//
-//    public void setComments(List comments) {
-//        this.comments = comments;
-//    }
 }

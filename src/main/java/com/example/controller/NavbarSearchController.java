@@ -18,8 +18,8 @@ public class NavbarSearchController {
     @Autowired
     private InterestService interestService;
 
-    @Autowired
-    private ApiService apiService;
+//    @Autowired
+//    private ApiService apiService;
 
     @RequestMapping(value = "/load",  method = RequestMethod.GET)
     public ResponseEntity<?> loadAllInterests() throws JsonProcessingException{
@@ -29,7 +29,7 @@ public class NavbarSearchController {
     @RequestMapping(value = "/search/{interestName}",  method = RequestMethod.GET)
     public ResponseEntity<?> findInterest(@PathVariable String interestName) throws JsonProcessingException{
         Interest interest = interestService.findByName(interestName);
-        apiService.loadAllStories(interestName);
+        //apiService.loadAllStories(interestName);
         if(interest != null) {
             return new ResponseEntity<>(interest, HttpStatus.OK);
         }

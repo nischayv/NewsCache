@@ -19,4 +19,20 @@ public class StoryList{
     StoryList() {
         results = new LinkedList<>();
     }
+
+    public List<Story> getResults() {
+        return results;
+    }
+
+    public void setResults(List<Story> results) {
+        this.results = results;
+    }
+
+    public String getQuery() {
+        return query;
+    }
+
+    public void setQuery(String query) {
+        this.query = query;
+    }
 }

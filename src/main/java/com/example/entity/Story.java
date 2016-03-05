@@ -18,7 +18,7 @@ public class Story implements java.io.Serializable{
     @JsonProperty("iurl")
     private String iurl;
     @JsonProperty("kwic")
-    private String kwic;
+    private String description;
     @JsonProperty("title")
     private String title;
     private String interestName;
@@ -57,13 +57,13 @@ public class Story implements java.io.Serializable{
         this.iurl = iurl;
     }
 
-    @Column(name = "kwic")
-    public String getKwic() {
-        return kwic;
+    @Column(name = "description")
+    public String getDescription() {
+        return description;
     }
 
-    public void setKwic(String kwic) {
-        this.kwic = kwic;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Column(name = "interestName")

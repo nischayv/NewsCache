@@ -8,4 +8,5 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 @Transactional
 public interface StoryRepo extends JpaRepository<Story, Long> {
+    Story findByUrl(String url);
 }

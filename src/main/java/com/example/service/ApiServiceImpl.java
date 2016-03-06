@@ -5,6 +5,7 @@ import com.example.dto.StoryList;
 import com.example.entity.Story;
 import com.example.repo.StoryRepo;
 import com.example.service.interfaces.ApiService;
+import com.example.service.interfaces.InterestService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,22 +21,29 @@ import java.util.Map;
 public class ApiServiceImpl implements ApiService{
 
     @Autowired
+    private InterestService interestService;
+
+    @Autowired
     private StoryRepo storyRepo;
 
     @Override
-    @Scheduled(cron = "0 * * * *")
+    @Scheduled(cron = "*/10 * * * * *")
     public void loadAllStories() throws JsonProcessingException {
         RestTemplate restTemplate = new RestTemplate();
-        Map<String, String> map = new HashMap<>();
-        map.put("interestName", "Star Wars");
-        map.put("key", Constants.getFarooKey());
-        ResponseEntity<StoryList> storyListEntity = restTemplate.getForEntity(Constants.getFarooUrl(), StoryList.class, map);
+        Map<String, String> map;
 
-        if(storyListEntity.getStatusCode() == HttpStatus.OK) {
-            for(Story story: storyListEntity.getBody().getResults()) {
-                if(story.getIurl() != null) {
-                    story.setInterestName("Star Wars");
-                    storyRepo.save(story);
+        for (String interestName : interestService.findAllInterestNames()) {
+            map = new HashMap<>();
+            map.put("interestName", interestName);
+            map.put("key", Constants.getFarooKey());
+            ResponseEntity<StoryList> storyListEntity = restTemplate.getForEntity(Constants.getFarooUrl(), StoryList.class, map);
+
+            if (storyListEntity.getStatusCode() == HttpStatus.OK) {
+                for (Story story : storyListEntity.getBody().getResults()) {
+                    if (story.getIurl().length() > 10 && storyRepo.findByUrl(story.getUrl()) == null) {
+                        story.setInterestName(interestName);
+                        storyRepo.save(story);
+                    }
                 }
             }
         }

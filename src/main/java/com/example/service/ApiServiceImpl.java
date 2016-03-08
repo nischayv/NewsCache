@@ -34,6 +34,7 @@ public class ApiServiceImpl implements ApiService{
 
         for (String interestName : interestService.findAllInterestNames()) {
             map = new HashMap<>();
+            int x;
             map.put("interestName", interestName);
             map.put("key", Constants.getFarooKey());
             ResponseEntity<StoryList> storyListEntity = restTemplate.getForEntity(Constants.getFarooUrl(), StoryList.class, map);

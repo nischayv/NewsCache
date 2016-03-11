@@ -35,7 +35,7 @@
             <column name="description" type="varchar(300)">
                 <constraints nullable="true"/>
             </column>
-            <column name="title" type="varchar(100)">
+            <column name="title" type="varchar(200)">
                 <constraints nullable="true"/>
             </column>
             <column name="interestName" type="varchar(20)">

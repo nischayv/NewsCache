@@ -27,7 +27,7 @@ public class ApiServiceImpl implements ApiService{
     private StoryRepo storyRepo;
 
     @Override
-    @Scheduled(cron = "*/10 * * * * *")
+    @Scheduled(cron = "0 */1 * * * *")
     public void loadAllStories() throws JsonProcessingException {
         RestTemplate restTemplate = new RestTemplate();
         Map<String, String> map;

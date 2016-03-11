@@ -7,4 +7,10 @@
             </div>
         </div>
     </div>
+    <div class="panel-group col-sm-4" ng-repeat="story in vm.storyList.stories track by story.id">
+        <div class="panel panel-default">
+            <div class="panel-heading">{{story.title}}</div>
+            <div class="panel-body">{{story.kwic}}</div>
+        </div>
+    </div>
 </div>

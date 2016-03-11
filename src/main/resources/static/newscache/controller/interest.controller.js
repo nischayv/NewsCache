@@ -14,7 +14,7 @@
         vm.interestName = $routeParams.param;
         vm.interest = {};
         vm.errors = {};
-        vm.stories = [];
+        vm.storyList = {stories: []};
         vm.convert = convert;
         activate();
 
@@ -24,7 +24,7 @@
                     console.log('Loaded the interest');
                     return $q.resolve();
                 })
-              //  .then(loadStories)
+                .then(loadStories)
                 .catch(function (error) {
                     vm.errors = error;
                 });
@@ -45,15 +45,16 @@
             return str.replace(/\s+/g, '').toLowerCase();
         }
 
-        //function loadStories() {
-        //    return InterestService.loadStories(vm.interestName)
-        //        .then(function (data) {
-        //            console.log(data);
-        //        })
-        //        .catch(function(error) {
-        //            vm.errors = error;
-        //        });
-        //}
+        function loadStories() {
+            return InterestService.loadStories(vm.interestName)
+                .then(function (data) {
+                    vm.storyList.stories = data;
+                    console.log(vm.storyList);
+                })
+                .catch(function(error) {
+                    vm.errors = error;
+                });
+        }
 
     }
 }());

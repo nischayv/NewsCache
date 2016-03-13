@@ -27,7 +27,7 @@ public class ApiServiceImpl implements ApiService{
     private StoryRepo storyRepo;
 
     @Override
-    @Scheduled(cron = "0 */1 * * * *")
+    @Scheduled(fixedRate = 36000000)
     public void loadAllStories() throws JsonProcessingException {
         RestTemplate restTemplate = new RestTemplate();
         Map<String, String> map;
@@ -37,9 +37,9 @@ public class ApiServiceImpl implements ApiService{
             map.put("interestName", interestName);
             map.put("key", Constants.getFarooKey());
             ResponseEntity<StoryList> storyListEntity = restTemplate.getForEntity(Constants.getFarooUrl(), StoryList.class, map);
-
             if (storyListEntity.getStatusCode() == HttpStatus.OK) {
                 for (Story story : storyListEntity.getBody().getResults()) {
+                    // && storyRepo.findByUrl(story.getUrl()) == null
                     if (story.getIurl().length() > 10 && storyRepo.findByUrl(story.getUrl()) == null) {
                         story.setInterestName(interestName);
                         storyRepo.save(story);

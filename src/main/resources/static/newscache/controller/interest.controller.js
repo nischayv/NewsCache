@@ -15,6 +15,7 @@
         vm.interest = {};
         vm.errors = {};
         vm.storyList = {stories: []};
+        vm.isDataLoaded = false;
         vm.convert = convert;
         activate();
 
@@ -50,11 +51,11 @@
                 .then(function (data) {
                     vm.storyList.stories = data;
                     console.log(vm.storyList);
+                    vm.isDataLoaded = true;
                 })
                 .catch(function(error) {
                     vm.errors = error;
                 });
         }
-
     }
 }());

@@ -12,7 +12,8 @@
     "angular-route": "1.4.x",
     "api-check": "~7.5.0",
     "bootstrap": "~3.3.6",
-    "jquery": "~2.1.4"
+    "jquery": "~2.1.4",
+    "angular-masonry": "0.16.0"
   },
   "devDependencies": {
     "jasmine-sinon": "~0.4.0",

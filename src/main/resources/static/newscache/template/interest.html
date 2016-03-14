@@ -7,13 +7,15 @@
             </div>
         </div>
     </div>
-    <div class="panel-group col-md-4 col-sm-6" ng-repeat="story in vm.storyList.stories track by story.id">
-        <div class="panel panel-default">
-            <div class="panel-heading">{{story.title}}</div>
-            <img ng-src={{story.iurl}} class="img-responsive center-block">
-            <div class="panel-body">{{story.kwic}}</div>
+    <masonry>
+        <div class="panel-group masonry-brick" ng-repeat="story in vm.storyList.stories track by story.id">
+            <div class="panel panel-default">
+                <div class="panel-heading">{{story.title}}</div>
+                <img ng-src={{story.iurl}} class="img-responsive center-block">
+                <div class="panel-body">{{story.kwic}}</div>
+            </div>
         </div>
-    </div>
+    </masonry>
 </div>
 
 

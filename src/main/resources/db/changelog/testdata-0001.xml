@@ -12,10 +12,10 @@
             <column name="id">100</column>
             <column name="name">Star Wars</column>
         </insert>
-        <insert tableName="interest">
-            <column name="id">101</column>
-            <column name="name">Football</column>
-        </insert>
+        <!--<insert tableName="interest">-->
+            <!--<column name="id">101</column>-->
+            <!--<column name="name">Football</column>-->
+        <!--</insert>-->
         <insert tableName="interest">
             <column name="id">102</column>
             <column name="name">Anime</column>
@@ -23,6 +23,14 @@
         <insert tableName="interest">
             <column name="id">103</column>
             <column name="name">Tv Shows</column>
+        </insert>
+        <insert tableName="interest">
+            <column name="id">104</column>
+            <column name="name">Arsenal</column>
+        </insert>
+        <insert tableName="interest">
+            <column name="id">105</column>
+            <column name="name">Black Sails</column>
         </insert>
     </changeSet>
 

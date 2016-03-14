@@ -5,6 +5,7 @@
             'ngRoute',
             'ui.bootstrap',
             'ngMessages',
+            'wu.masonry',
             'newscache.config',
             'newscache.service',
             'newscache.controller',

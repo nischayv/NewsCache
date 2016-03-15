@@ -8,7 +8,8 @@
         </div>
     </div>
     <div masonry>
-        <div class="panel-group col-md-4 col-sm-6 masonry-brick" ng-repeat="story in vm.storyList.stories track by story.id">
+        <!--TODO not using col-sm-6 col-md-4 because of angular-masonry glitch-->
+        <div class="masonry-brick panel-group" ng-repeat="story in vm.storyList.stories track by story.id">
             <div class="panel panel-default">
                 <div class="panel-heading">{{story.title}}</div>
                 <img ng-src={{story.iurl}} class="img-responsive center-block">

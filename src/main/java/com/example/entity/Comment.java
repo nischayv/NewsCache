@@ -4,12 +4,15 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="comment")
-public class Comment {
+public class Comment implements java.io.Serializable{
 
     private Long id;
     private String comment;
     private User user;
     private Story story;
+
+    public Comment() {
+    }
 
     @Id
     @Column(name = "id", unique = true, nullable = false)
@@ -39,5 +42,15 @@ public class Comment {
 
     public void setStory(Story story) {
         this.story = story;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

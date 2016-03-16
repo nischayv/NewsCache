@@ -1,9 +1,11 @@
 package com.example.entity;
 
 import javax.persistence.Column;
+import javax.persistence.OneToMany;
+import java.util.LinkedList;
 import java.util.List;
 
-public class User {
+public class User implements java.io.Serializable{
 
     private String firstName;
     private String lastName;
@@ -13,6 +15,7 @@ public class User {
     private List<Comment> comments;
 
     public User() {
+        comments = new LinkedList<>();
     }
 
     @Column(name = "firstname")
@@ -61,6 +64,7 @@ public class User {
     }
 
     @Column(name = "userComment")
+    @OneToMany(mappedBy = "user")
     public List<Comment> getComments() {
         return comments;
     }

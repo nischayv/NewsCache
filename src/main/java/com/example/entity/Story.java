@@ -22,10 +22,10 @@ public class Story implements java.io.Serializable{
     @JsonProperty("title")
     private String title;
     private String interestName;
-//    private List comments;
+    private List<Comment> comments;
 
     public Story() {
-      //  comments = new LinkedList<Comment>();
+        comments = new LinkedList<>();
     }
 
     @Id
@@ -84,4 +84,12 @@ public class Story implements java.io.Serializable{
         this.title = title;
     }
 
+    @OneToMany(mappedBy = "story")
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
 }

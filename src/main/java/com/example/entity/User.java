@@ -1,12 +1,15 @@
 package com.example.entity;
 
-import javax.persistence.Column;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.LinkedList;
 import java.util.List;
 
+
+@Entity
+@Table(name = "user")
 public class User implements java.io.Serializable{
 
+    private Long id;
     private String firstName;
     private String lastName;
     private String email;
@@ -17,6 +20,18 @@ public class User implements java.io.Serializable{
     public User() {
         comments = new LinkedList<>();
     }
+
+    @Id
+    @Column(name = "id", unique = true, nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
 
     @Column(name = "firstname")
     public String getFirstName() {

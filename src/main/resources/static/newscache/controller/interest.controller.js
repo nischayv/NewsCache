@@ -7,15 +7,17 @@
         ])
         .controller('InterestController', InterestController);
 
-    InterestController.$inject = ['InterestService', '$q', '$scope', '$routeParams'];
+    InterestController.$inject = ['InterestService', '$q', '$scope', '$routeParams', '$uibModal'];
 
-    function InterestController(InterestService, $q, $scope, $routeParams) {
+    function InterestController(InterestService, $q, $scope, $routeParams, $uibModal) {
         var vm = this;
         vm.interestName = $routeParams.param;
         vm.interest = {};
         vm.errors = {};
         vm.storyList = {stories: []};
         vm.isDataLoaded = false;
+        vm.storyModal = {};
+        vm.popUp = popUp;
         vm.convert = convert;
         activate();
 
@@ -56,6 +58,20 @@
                 .catch(function(error) {
                     vm.errors = error;
                 });
+        }
+
+        function popUp(story) {
+            vm.storyModal = $uibModal.open({
+               templateUrl: 'newscache/template/storyModal.html',
+               controller: 'StoryModalController',
+               controllerAs: 'vm',
+               resolve: {
+                   story: function() {
+                       return story;
+                   }
+               },
+               animation: true
+            });
         }
     }
 }());

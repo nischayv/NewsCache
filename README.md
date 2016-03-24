@@ -4,7 +4,7 @@ This is a web application that brings all the latest news that a person might be
 The application makes use of Faroo's Rest API to crawl the web and gather all the news articles.
 
 
-## Steps to get started developing on this project
+### Steps to get started developing on this project
 
  1. Install node.js
 

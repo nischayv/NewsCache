@@ -9,13 +9,13 @@
 
  2. Command line statements to install other stuff
 
-   ..* Navigate to project root in cmd or open terminal in the IDE.
+   * Navigate to project root in cmd or open terminal in the IDE.
 
-   ..* Install Bower: npm install -g bower (-g installs it globally for all projects in future. Ignore it if you don't want it)
+   * Install Bower: npm install -g bower (-g installs it globally for all projects in future. Ignore it if you don't want it)
 
-   ..* Run bower: bower install
+   * Run bower: bower install
 
-   ..* Install Gulp: npm install -g gulp
+   * Install Gulp: npm install -g gulp
 
  3. This project uses gulp - a javascript task runner.
 

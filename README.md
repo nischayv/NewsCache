@@ -19,8 +19,8 @@
 
  3. This project uses gulp - a javascript task runner.
 
-    ..*To use gulp to enable livereload to avoid running the whole program type "-gulp watch" in the terminal.
-       This basically watches for any changes in the javascript and html files.
+   * To use gulp to enable livereload to avoid running the whole program type "-gulp watch" in the terminal.
+     This basically watches for any changes in the javascript and html files.
 
  4. If we plan to write tests we have to use Karma, a test runner for javascript.
     Will add the stuff if needed.

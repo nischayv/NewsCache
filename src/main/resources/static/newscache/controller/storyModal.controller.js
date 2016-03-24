@@ -5,7 +5,7 @@
         .module('newscache.controller.storyModal', [])
         .controller('StoryModalController', StoryModalController);
 
-    StoryModalController.$inject = ['$storyModal', 'story'];
+    StoryModalController.$inject = ['$uibModalInstance', 'story'];
 
     function StoryModalController($storyModal, story) {
         var vm = this;

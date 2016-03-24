@@ -10,6 +10,10 @@
     margin-right: 10%;
 }
 
+.story-block{
+    height: 150%;
+}
+
 .subscribe{
     display: inline-block;
     padding: 5% 5% 20%;
@@ -23,12 +27,12 @@
     border-color: #2e6da4;
 }
 
-.panel-group{
-    display: inline-block;
-    width: calc(100%/3);
-    padding-left: 2%;
-    padding-right: 2%;
-}
+/*.panel-group{*/
+    /*display: inline-block;*/
+    /*width: calc(100%/3);*/
+    /*padding-left: 2%;*/
+    /*padding-right: 2%;*/
+/*}*/
 
 @media (max-width: 975px) {
     .navbar-header {
@@ -66,4 +70,9 @@
     .collapsing {
         overflow: hidden!important;
     }
+}
+
+.my-dialog > .modal-dialog{
+    width: 1200px;
+    height: 2600px;
 }

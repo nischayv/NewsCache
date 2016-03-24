@@ -65,12 +65,14 @@
                templateUrl: 'newscache/template/storyModal.html',
                controller: 'StoryModalController',
                controllerAs: 'vm',
+               windowClass: 'my-dialog',
                resolve: {
                    story: function() {
                        return story;
                    }
                },
-               animation: true
+               animation: true,
+               size: 'lg'
             });
         }
     }

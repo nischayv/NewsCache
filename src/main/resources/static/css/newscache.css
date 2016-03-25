@@ -72,7 +72,7 @@
     }
 }
 
-.my-dialog > .modal-dialog{
-    width: 1200px;
-    height: 2600px;
+.my-dialog .modal-dialog{
+    max-height: 90vh;
+    width: 95%;
 }

@@ -3,10 +3,10 @@
         <button type="button" class="close" aria-hidden="true" ng-click="vm.closeStory('ok')">&times;</button>
         <h4 class="modal-title text-center">{{vm.story.title}}</h4>
     </div>
-    <div class="modal-body story-block">
-        <div class="panel-group col-md-6 ">
+    <div class="modal-body" style="max-height: inherit">
+        <div class="panel-group col-md-6">
             <div class="panel panel-default">
-                <img ng-src={{vm.story.iurl}} class="img-responsive center-block">
+                <img ng-src={{vm.story.iurl}} class="center-block img-responsive" style="max-height: 56vh">
                 <a ng-href={{vm.story.url}}>
                     <div class="panel-body">{{vm.story.kwic}}</div>
                     <div class="panel-body">Click to go to page</div>
@@ -19,9 +19,4 @@
             </div>
         </div>
     </div>
-    <!--<div class="modal-footer">-->
-    <!--<div class="text-center">-->
-    <!--<button  class="btn btn-primary">Close</button>-->
-    <!--</div>-->
-    <!--</div>-->
 </div>

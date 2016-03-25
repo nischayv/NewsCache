@@ -71,8 +71,8 @@
                        return story;
                    }
                },
-               animation: true,
-               size: 'lg'
+               animation: true
+               //size: 'lg'
             });
         }
     }

@@ -11,6 +11,21 @@
         var vm = this;
         vm.story = story;
         vm.closeStory = closeStory;
+        activate();
+
+        function activate() {
+            return loadComments()
+                .then(function() {
+
+                })
+                .catch(function() {
+
+                });
+        }
+
+        function loadComments() {
+
+        }
 
         function closeStory() {
             $storyModal.close('ok');

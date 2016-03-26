@@ -1,6 +1,5 @@
 package com.example.controller;
 
-import com.example.service.interfaces.InterestService;
 import com.example.service.interfaces.StoryService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;

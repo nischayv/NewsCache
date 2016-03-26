@@ -26,8 +26,9 @@ public class ApiServiceImpl implements ApiService{
     @Autowired
     private StoryRepo storyRepo;
 
+    //TODO remove extra 0 in fixedRate to make it hourly pull
     @Override
-    @Scheduled(fixedRate = 36000000)
+    @Scheduled(fixedRate = 360000000)
     public void loadAllStories() throws JsonProcessingException {
         RestTemplate restTemplate = new RestTemplate();
         Map<String, String> map;

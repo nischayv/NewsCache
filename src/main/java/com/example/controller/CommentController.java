@@ -17,7 +17,8 @@ public class CommentController {
 
     @RequestMapping(value = "/save",  method = RequestMethod.POST)
     public ResponseEntity<?> loadAllStories(@RequestBody Comment comment) throws JsonProcessingException {
-        return new ResponseEntity<>(commentService.save(comment), HttpStatus.OK);
+        Comment savedComment = commentService.save(comment);
+        return new ResponseEntity<>(savedComment, HttpStatus.OK);
     }
 
 }

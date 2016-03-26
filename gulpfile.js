@@ -24,6 +24,7 @@ var pkg = {
             './src/main/resources/static/newscache/service/service.config.js',
             './src/main/resources/static/newscache/service/navbar.service.js',
             './src/main/resources/static/newscache/service/interest.service.js',
+            './src/main/resources/static/newscache/service/storyModal.service.js',
             //controller module
             './src/main/resources/static/newscache/controller/controller.config.js',
             './src/main/resources/static/newscache/controller/navbar.controller.js',

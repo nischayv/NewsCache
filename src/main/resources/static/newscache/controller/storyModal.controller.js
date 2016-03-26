@@ -5,13 +5,16 @@
         .module('newscache.controller.storyModal', [])
         .controller('StoryModalController', StoryModalController);
 
-    StoryModalController.$inject = ['$uibModalInstance', 'story'];
+    StoryModalController.$inject = ['$uibModalInstance', 'story', 'StoryModalService'];
 
-    function StoryModalController($storyModal, story) {
+    function StoryModalController($storyModal, story, StoryModalService) {
         var vm = this;
         vm.story = story;
+        vm.comment = { id: 101, comment: '', user: {id: 101, firstName: 'Nischay', lastName: 'Venkatram', email: 'testEmail', username: 'nischayv', password: 'password', comments: []},  story: {}};
+        vm.storyComment = '';
         vm.closeStory = closeStory;
-        activate();
+        vm.save = saveComment;
+       // activate();
 
         function activate() {
             return loadComments()
@@ -25,6 +28,18 @@
 
         function loadComments() {
 
+        }
+
+        function saveComment() {
+            vm.comment.comment = vm.storyComment;
+            vm.comment.story = vm.story;
+            return StoryModalService.saveComment(vm.comment)
+                .then(function(data) {
+                   console.log(data);
+                })
+                .catch(function(error) {
+                    console.log(error);
+                });
         }
 
         function closeStory() {

@@ -5,10 +5,11 @@ import com.example.entity.Comment;
 import com.example.repo.CommentRepo;
 import com.example.service.interfaces.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.stereotype.Service;
 import java.util.LinkedList;
 import java.util.List;
 
+@Service
 public class CommentServiceImpl implements CommentService{
 
     @Autowired

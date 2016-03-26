@@ -38,6 +38,7 @@
         //}
 
         function saveComment(comment) {
+            console.log(comment);
             return $resource('./api/comment/save', {}, {
                         execute: {
                             method: 'POST'

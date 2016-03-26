@@ -26,9 +26,9 @@
 
             <div class="panel panel-default">
                 <div class="panel-body form-inline">
-                    <button class="btn btn-primary" style="float: right;">Post</button>
+                    <button class="btn btn-primary" style="float: right;" ng-click="vm.save()">Post</button>
                     <div style="overflow: hidden; padding-right: 10px">
-                        <input type="text" class="form-control" placeholder="Comment" style="width: 100%">
+                        <input type="text" class="form-control" placeholder="Comment" style="width: 100%" ng-model="vm.storyComment">
                     </div>
                 </div>
             </div>

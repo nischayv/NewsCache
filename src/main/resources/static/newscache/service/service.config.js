@@ -3,6 +3,7 @@
 
     angular
         .module('newscache.service', [
-        'newscache.navbar.service'
+        'newscache.navbar.service',
+        'newscache.storyModal.service'
         ]);
 }());

@@ -10,32 +10,35 @@
 
     StoryModalService.$inject = ['$resource', '$q'];
 
-    function StoryModalService($resource, $q, $location) {
+    function StoryModalService($resource, $q) {
 
         return {
-            //loadComments: loadComments,
+            loadComments: loadComments,
             saveComment: saveComment
         };
 
-        //function loadComments() {
-        //    return $resource('./api/comment/load', {}, {
-        //        execute: {
-        //            method: 'GET',
-        //            isArray: true
-        //        }
-        //    }).execute().$promise
-        //        .then(success)
-        //        .catch(fail);
-        //
-        //    function success(data) {
-        //        return data;
-        //    }
-        //
-        //    function fail (error) {
-        //        console.log(error);
-        //        return $q.reject(error);
-        //    }
-        //}
+        function loadComments(storyTitle) {
+            console.log(storyTitle);
+            return $resource('./api/comment/load/' + storyTitle, {}, {
+                execute: {
+                    method: 'GET',
+                    isArray: true
+                }
+            }).execute().$promise
+                .then(success)
+                .catch(fail);
+
+            function success(data) {
+                console.log('In service');
+                console.log(data);
+                return data;
+            }
+
+            function fail (error) {
+                console.log(error);
+                return $q.reject(error);
+            }
+        }
 
         function saveComment(comment) {
             console.log(comment);

@@ -56,10 +56,10 @@
                 <constraints nullable="true"/>
             </column>
             <column name="story_id" type="bigint">
-                <constraints nullable="false" foreignKeyName="fk_story" references="story(id)"/>
+                <constraints nullable="false" foreignKeyName="fk_stories" references="story(id)"/>
             </column>
             <column name="user_id" type="bigint">
-                <constraints nullable="false" foreignKeyName="fk_user" references="comment(id)"/>
+                <constraints nullable="false" foreignKeyName="fk_users" references="comment(id)"/>
             </column>
         </createTable>
         <addAutoIncrement tableName="comment"

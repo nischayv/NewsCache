@@ -1,5 +1,6 @@
 package com.example.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -22,6 +23,7 @@ public class Story implements java.io.Serializable{
     @JsonProperty("title")
     private String title;
     private String interestName;
+    @JsonIgnore
     private List<Comment> comments;
 
     public Story() {
@@ -84,7 +86,7 @@ public class Story implements java.io.Serializable{
         this.title = title;
     }
 
-    @OneToMany(mappedBy = "story")
+    @OneToMany(mappedBy = "story", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     public List<Comment> getComments() {
         return comments;
     }

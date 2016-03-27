@@ -14,20 +14,26 @@
         vm.storyComment = '';
         vm.closeStory = closeStory;
         vm.save = saveComment;
-       // activate();
+        activate();
 
         function activate() {
             return loadComments()
                 .then(function() {
-
+                    console.log('loaded the comments');
                 })
-                .catch(function() {
-
+                .catch(function(error) {
+                    console.log(error);
                 });
         }
 
         function loadComments() {
-
+            return StoryModalService.loadComments(vm.story.title)
+                .then(function(data) {
+                    console.log('In controller');
+                })
+                .catch(function(error) {
+                    console.log(error);
+                });
         }
 
         function saveComment() {

@@ -1,5 +1,7 @@
 package com.example.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.LinkedList;
 import java.util.List;
@@ -15,6 +17,7 @@ public class User implements java.io.Serializable{
     private String email;
     private String username;
     private String password;
+    @JsonIgnore
     private List<Comment> comments;
 
     public User() {
@@ -78,8 +81,7 @@ public class User implements java.io.Serializable{
         this.password = password;
     }
 
-    @Column(name = "userComment")
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     public List<Comment> getComments() {
         return comments;
     }

@@ -23,8 +23,6 @@ public class CommentController {
 
     @RequestMapping(value = "/load/{storyTitle}",  method = RequestMethod.GET)
     public ResponseEntity<?> loadComments(@PathVariable String storyTitle) throws JsonProcessingException {
-
-        return new ResponseEntity<>(, HttpStatus.OK);
+        return new ResponseEntity<>(commentService.findAllByStoryTitle(storyTitle), HttpStatus.OK);
     }
-
 }

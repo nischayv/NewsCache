@@ -55,6 +55,12 @@
             <column name="userComment" type="varchar(50)">
                 <constraints nullable="true"/>
             </column>
+            <column name="story_id" type="bigint">
+                <constraints nullable="false" foreignKeyName="fk_story" references="story(id)"/>
+            </column>
+            <column name="user_id" type="bigint">
+                <constraints nullable="false" foreignKeyName="fk_user" references="comment(id)"/>
+            </column>
         </createTable>
         <addAutoIncrement tableName="comment"
                           columnName="id"

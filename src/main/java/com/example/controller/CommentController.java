@@ -16,9 +16,15 @@ public class CommentController {
     private CommentService commentService;
 
     @RequestMapping(value = "/save",  method = RequestMethod.POST)
-    public ResponseEntity<?> loadAllStories(@RequestBody Comment comment) throws JsonProcessingException {
+    public ResponseEntity<?> saveComment(@RequestBody Comment comment) throws JsonProcessingException {
         Comment savedComment = commentService.save(comment);
         return new ResponseEntity<>(savedComment, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/load/{storyTitle}",  method = RequestMethod.GET)
+    public ResponseEntity<?> loadComments(@PathVariable String storyTitle) throws JsonProcessingException {
+
+        return new ResponseEntity<>(, HttpStatus.OK);
     }
 
 }

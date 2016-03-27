@@ -32,6 +32,34 @@
             <column name="id">105</column>
             <column name="name">Black Sails</column>
         </insert>
+        <insert tableName="comment">
+            <column name="id">100</column>
+            <column name="userComment">I love this web app!!</column>
+            <column name="story_id">100</column>
+            <column name="user_id">100</column>
+        </insert>
+        <insert tableName="comment">
+            <column name="id">101</column>
+            <column name="userComment">This article is awesome!</column>
+            <column name="story_id">100</column>
+            <column name="user_id">101</column>
+        </insert>
+        <insert tableName="user">
+            <column name="id">100</column>
+            <column name="firstname">Nischay</column>
+            <column name="lastname">Venkatram</column>
+            <column name="email">nischayv@iastate.edu</column>
+            <column name="username">username</column>
+            <column name="password">password</column>
+        </insert>
+        <insert tableName="user">
+            <column name="id">101</column>
+            <column name="firstname">Test</column>
+            <column name="lastname">Test</column>
+            <column name="email">test@iastate.edu</column>
+            <column name="username">username</column>
+            <column name="password">password</column>
+        </insert>
     </changeSet>
 
 </databaseChangeLog>

@@ -18,7 +18,6 @@
         };
 
         function loadComments(storyTitle) {
-            console.log(storyTitle);
             return $resource('./api/comment/load/' + storyTitle, {}, {
                 execute: {
                     method: 'GET',
@@ -29,8 +28,6 @@
                 .catch(fail);
 
             function success(data) {
-                console.log('In service');
-                console.log(data);
                 return data;
             }
 

@@ -40,6 +40,14 @@
             <column name="username">username</column>
             <column name="password">password</column>
         </insert>
+        <insert tableName="user">
+            <column name="id">101</column>
+            <column name="firstname">Nischay1</column>
+            <column name="lastname">Venkatram1</column>
+            <column name="email">nischayv@iastate.edu</column>
+            <column name="username">username</column>
+            <column name="password">password</column>
+        </insert>
         <insert tableName="story">
             <column name="id">100</column>
             <column name="url">	http://www.slashgear.com/microsoft-demos-holoportation-with-real-time-holograms-straight-out-of-star-wars-27433611/</column>
@@ -65,6 +73,18 @@
         <insert tableName="comment">
             <column name="id">101</column>
             <column name="userComment">This article is awesome!</column>
+            <column name="story_id">100</column>
+            <column name="user_id">101</column>
+        </insert>
+        <insert tableName="comment">
+            <column name="id">102</column>
+            <column name="userComment">I know!!</column>
+            <column name="story_id">100</column>
+            <column name="user_id">100</column>
+        </insert>
+        <insert tableName="comment">
+            <column name="id">103</column>
+            <column name="userComment">Yolo</column>
             <column name="story_id">100</column>
             <column name="user_id">101</column>
         </insert>

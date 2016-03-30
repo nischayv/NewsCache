@@ -12,6 +12,7 @@
         vm.story = story;
         vm.comment = { id: 101, comment: '', user: {id: 101, firstName: 'Nischay', lastName: 'Venkatram', email: 'testEmail', username: 'nischayv', password: 'password', comments: []},  story: {}};
         vm.storyComment = '';
+        vm.comments = [];
         vm.closeStory = closeStory;
         vm.save = saveComment;
         activate();
@@ -29,7 +30,8 @@
         function loadComments() {
             return StoryModalService.loadComments(vm.story.title)
                 .then(function(data) {
-                    console.log('In controller');
+                    vm.comments = data;
+                    console.log(vm.comments);
                 })
                 .catch(function(error) {
                     console.log(error);

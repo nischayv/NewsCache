@@ -14,6 +14,12 @@ public class Comment implements java.io.Serializable{
     public Comment() {
     }
 
+    public Comment(User user, Story story, String comment) {
+        this.user = user;
+        this.story = story;
+        this.comment = comment;
+    }
+
     @Id
     @Column(name = "id", unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)

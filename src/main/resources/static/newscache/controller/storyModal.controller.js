@@ -10,9 +10,12 @@
     function StoryModalController($storyModal, story, StoryModalService) {
         var vm = this;
         vm.story = story;
-        vm.comment = { id: 101, comment: '', user: {id: 101, firstName: 'Nischay', lastName: 'Venkatram', email: 'testEmail', username: 'nischayv', password: 'password', comments: []},  story: {}};
+  //      vm.comment = { id: 101, comment: '', user: {id: 101, firstName: 'Nischay', lastName: 'Venkatram', email: 'testEmail', username: 'nischayv', password: 'password', comments: []},  story: {}};
         vm.storyComment = '';
         vm.comments = [];
+        vm.username = 'nischayv';
+        vm.storyTitle = '';
+        vm.commentDto = {storyTitle:'', username:'', storyComment:''};
         vm.closeStory = closeStory;
         vm.save = saveComment;
         activate();
@@ -39,9 +42,10 @@
         }
 
         function saveComment() {
-            vm.comment.comment = vm.storyComment;
-            vm.comment.story = vm.story;
-            return StoryModalService.saveComment(vm.comment)
+            vm.commentDto.storyTitle = vm.story.title;
+            vm.commentDto.storyComment = vm.storyComment;
+            vm.commentDto.username =  vm.username;
+            return StoryModalService.saveComment(vm.commentDto)
                 .then(function(data) {
                    console.log(data);
                 })

@@ -8,4 +8,5 @@ import java.util.List;
 public interface StoryService {
     List<Story> loadAllStories(String interestName);
 //    Interest findByName(String name);
+    Story findByTitle(String title);
 }

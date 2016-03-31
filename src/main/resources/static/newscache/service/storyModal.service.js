@@ -38,7 +38,6 @@
         }
 
         function saveComment(comment) {
-            console.log(comment);
             return $resource('./api/comment/save', {}, {
                         execute: {
                             method: 'POST'
@@ -48,6 +47,7 @@
                         .catch(fail);
 
                     function success(data) {
+                        console.log(data);
                         return data;
                     }
 

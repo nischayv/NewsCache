@@ -12,4 +12,5 @@ import java.util.List;
 public interface StoryRepo extends JpaRepository<Story, Long> {
     Story findByUrl(String url);
     List<Story> findAllByInterestName(String interestName);
+    Story findByTitle(String title);
 }

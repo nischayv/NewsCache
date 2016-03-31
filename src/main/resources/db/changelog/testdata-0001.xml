@@ -37,14 +37,14 @@
             <column name="firstname">Nischay</column>
             <column name="lastname">Venkatram</column>
             <column name="email">nischayv@iastate.edu</column>
-            <column name="username">username</column>
+            <column name="username">nischayv</column>
             <column name="password">password</column>
         </insert>
         <insert tableName="user">
             <column name="id">101</column>
-            <column name="firstname">Nischay1</column>
-            <column name="lastname">Venkatram1</column>
-            <column name="email">nischayv@iastate.edu</column>
+            <column name="firstname">Captain</column>
+            <column name="lastname">Flint</column>
+            <column name="email">flint@iastate.edu</column>
             <column name="username">username</column>
             <column name="password">password</column>
         </insert>
@@ -56,14 +56,6 @@
             <column name="title">Microsoft demos ‘Holoportation’ with real-time holograms straight out of Star Wars	</column>
             <column name="interestName">Star Wars</column>
         </insert>
-        <!--<insert tableName="user">-->
-        <!--<column name="id">101</column>-->
-        <!--<column name="firstname">Test</column>-->
-        <!--<column name="lastname">Test</column>-->
-        <!--<column name="email">test@iastate.edu</column>-->
-        <!--<column name="username">username</column>-->
-        <!--<column name="password">password</column>-->
-        <!--</insert>-->
         <insert tableName="comment">
             <column name="id">100</column>
             <column name="userComment">I love this web app!!</column>

@@ -19,4 +19,12 @@ public class StoryServiceImpl implements StoryService {
         return storyRepo.findAllByInterestName(interestName);
     }
 
+    @Override
+    public Story findByTitle(String title) {
+        Story story = storyRepo.findByTitle(title);
+        if(story != null) {
+            story.getComments().size();
+        }
+        return story;
+    }
 }

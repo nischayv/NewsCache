@@ -13,7 +13,7 @@
                 </a>
             </div>
         </div>
-        <div id="commentWrapper" class="col-md-6" style="height: 50vh; overflow: auto">
+        <div id="commentWrapper" class="col-md-6" style="height: 54vh; overflow: auto">
         <div class="panel-group"  ng-repeat="comment in vm.comments">
             <div class="panel panel-default">
                 <div class="panel-heading">{{comment.user.firstName}} {{comment.user.lastName}}</div>
@@ -24,7 +24,7 @@
         </div>
     </div>
 
-    <div class="panel-group col-md-6">
+    <div class="panel-group col-md-6" style="margin-top: 10px">
         <div class="panel panel-default"  style="width: 97%;">
             <div class="panel-body form-inline">
                 <button class="btn btn-primary" style="float: right;" ng-click="vm.save()">Post</button>

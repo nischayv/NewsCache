@@ -5,12 +5,12 @@
         .module('newscache.controller.storyModal', [])
         .controller('StoryModalController', StoryModalController);
 
-    StoryModalController.$inject = ['$uibModalInstance', 'story', 'StoryModalService'];
+    StoryModalController.$inject = ['$uibModalInstance', 'story', 'StoryModalService', '$scope'];
 
-    function StoryModalController($storyModal, story, StoryModalService) {
+    function StoryModalController($storyModal, story, StoryModalService, $scope) {
         var vm = this;
         vm.story = story;
-  //      vm.comment = { id: 101, comment: '', user: {id: 101, firstName: 'Nischay', lastName: 'Venkatram', email: 'testEmail', username: 'nischayv', password: 'password', comments: []},  story: {}};
+        vm.comment = {};
         vm.storyComment = '';
         vm.comments = [];
         vm.username = 'nischayv';
@@ -30,6 +30,10 @@
                 });
         }
 
+        $scope.$watch('vm.comment', function() {
+           vm.comments.push(vm.comment);
+        });
+
         function loadComments() {
             return StoryModalService.loadComments(vm.story.title)
                 .then(function(data) {
@@ -47,6 +51,7 @@
             vm.commentDto.username =  vm.username;
             return StoryModalService.saveComment(vm.commentDto)
                 .then(function(data) {
+                   vm.comment = data;
                    console.log(data);
                 })
                 .catch(function(error) {

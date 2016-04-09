@@ -5,9 +5,9 @@
         .module('newscache.controller.storyModal', [])
         .controller('StoryModalController', StoryModalController);
 
-    StoryModalController.$inject = ['$uibModalInstance', 'story', 'StoryModalService', '$scope'];
+    StoryModalController.$inject = ['$uibModalInstance', 'story', 'StoryModalService', '$scope', '$interval'];
 
-    function StoryModalController($storyModal, story, StoryModalService, $scope) {
+    function StoryModalController($storyModal, story, StoryModalService, $scope, $interval) {
         var vm = this;
         vm.story = story;
         vm.comment = {};
@@ -16,9 +16,25 @@
         vm.username = 'nischayv';
         vm.storyTitle = '';
         vm.commentDto = {storyTitle:'', username:'', storyComment:''};
+        vm.pull = {};
         vm.closeStory = closeStory;
         vm.save = saveComment;
         activate();
+        retrieve();
+
+        function retrieve() {
+            vm.pull = $interval(function () {
+            activate();
+            }, 1000);
+        }
+
+        //Timer stop function.
+        //vm.stopPull = function () {
+        //    //Cancel the Timer.
+        //    if (angular.isDefined(vm.pull)) {
+        //        $interval.cancel(vm.pull);
+        //    }
+        //};
 
         function activate() {
             return loadComments()
@@ -60,6 +76,9 @@
         }
 
         function closeStory() {
+            if (angular.isDefined(vm.pull)) {
+                $interval.cancel(vm.pull);
+            }
             $storyModal.close('ok');
         }
     }

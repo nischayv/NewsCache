@@ -16,10 +16,10 @@
             <!--<column name="id">101</column>-->
             <!--<column name="name">Football</column>-->
         <!--</insert>-->
-        <!--<insert tableName="interest">-->
-            <!--<column name="id">102</column>-->
-            <!--<column name="name">Anime</column>-->
-        <!--</insert>-->
+        <insert tableName="interest">
+            <column name="id">102</column>
+            <column name="name">Anime</column>
+        </insert>
         <!--<insert tableName="interest">-->
             <!--<column name="id">103</column>-->
             <!--<column name="name">Tv Shows</column>-->

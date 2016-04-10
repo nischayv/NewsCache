@@ -5,6 +5,7 @@ import com.example.entity.Comment;
 import com.example.repo.CommentRepo;
 import com.example.service.interfaces.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 import java.util.LinkedList;
 import java.util.List;
@@ -14,6 +15,9 @@ public class CommentServiceImpl implements CommentService{
 
     @Autowired
     private CommentRepo commentRepo;
+
+    @Autowired
+    private SimpMessagingTemplate template;
 
     @Override
     public List<Comment> findAllByStoryTitle(String storyTitle) {
@@ -28,6 +32,10 @@ public class CommentServiceImpl implements CommentService{
 
     @Override
     public Comment save(Comment comment) {
-        return commentRepo.save(comment);
+        Comment savedComment = commentRepo.save(comment);
+        if(savedComment!= null) {
+            template.convertAndSend("/topic/message", findAllByStoryTitle(savedComment.getStory().getTitle()));
+        }
+        return savedComment;
     }
 }

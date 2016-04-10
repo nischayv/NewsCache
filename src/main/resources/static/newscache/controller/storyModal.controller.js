@@ -5,36 +5,37 @@
         .module('newscache.controller.storyModal', [])
         .controller('StoryModalController', StoryModalController);
 
-    StoryModalController.$inject = ['$uibModalInstance', 'story', 'StoryModalService', '$scope', '$interval'];
+    StoryModalController.$inject = ['$uibModalInstance', 'story', 'StoryModalService', '$scope', '$interval', '$stomp'];
 
-    function StoryModalController($storyModal, story, StoryModalService, $scope, $interval) {
+    function StoryModalController($storyModal, story, StoryModalService, $scope, $interval, $stomp) {
         var vm = this;
         vm.story = story;
-        vm.comment = {};
         vm.storyComment = '';
         vm.comments = [];
         vm.username = 'nischayv';
         vm.storyTitle = '';
         vm.commentDto = {storyTitle:'', username:'', storyComment:''};
-        vm.pull = {};
         vm.closeStory = closeStory;
         vm.save = saveComment;
         activate();
-        retrieve();
+        //retrieve();
+        //
+        //function retrieve() {
+        //    vm.pull = $interval(function () {
+        //    activate();
+        //    }, 1000);
+        //}
 
-        function retrieve() {
-            vm.pull = $interval(function () {
-            activate();
-            }, 1000);
-        }
+        $stomp
+            .connect('/newscache/stomp')
+            .then(function () {
+                $stomp.subscribe('/topic/message', function (payload) {
+                   vm.comments = payload;
+                   console.log(vm.comments);
+                });
+            });
 
-        //Timer stop function.
-        //vm.stopPull = function () {
-        //    //Cancel the Timer.
-        //    if (angular.isDefined(vm.pull)) {
-        //        $interval.cancel(vm.pull);
-        //    }
-        //};
+
 
         function activate() {
             return loadComments()
@@ -45,10 +46,6 @@
                     console.log(error);
                 });
         }
-
-        $scope.$watch('vm.comment', function() {
-           vm.comments.push(vm.comment);
-        });
 
         function loadComments() {
             return StoryModalService.loadComments(vm.story.title)
@@ -67,8 +64,8 @@
             vm.commentDto.username =  vm.username;
             return StoryModalService.saveComment(vm.commentDto)
                 .then(function(data) {
-                   vm.comment = data;
-                   console.log(data);
+                   vm.comments.push(data);
+                   //$scope.compile();
                 })
                 .catch(function(error) {
                     console.log(error);
@@ -76,9 +73,9 @@
         }
 
         function closeStory() {
-            if (angular.isDefined(vm.pull)) {
-                $interval.cancel(vm.pull);
-            }
+            //if (angular.isDefined(vm.pull)) {
+            //    $interval.cancel(vm.pull);
+            //}
             $storyModal.close('ok');
         }
     }

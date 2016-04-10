@@ -6,6 +6,7 @@
             'ui.bootstrap',
             'ngMessages',
             'wu.masonry',
+            'ngStomp',
             'newscache.config',
             'newscache.service',
             'newscache.controller',

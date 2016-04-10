@@ -39,21 +39,21 @@
 
         function saveComment(comment) {
             return $resource('./api/comment/save', {}, {
-                        execute: {
-                            method: 'POST'
-                        }
-                    }).execute(comment).$promise
-                        .then(success)
-                        .catch(fail);
+                execute: {
+                    method: 'POST'
+                }
+            }).execute(comment).$promise
+                .then(success)
+                .catch(fail);
 
-                    function success(data) {
-                        return data;
-                    }
+            function success(data) {
+                return data;
+            }
 
-                    function fail (error) {
-                        console.log(error);
-                        return $q.reject(error);
-                    }
+            function fail (error) {
+                console.log(error);
+                return $q.reject(error);
+            }
         }
     }
 }());

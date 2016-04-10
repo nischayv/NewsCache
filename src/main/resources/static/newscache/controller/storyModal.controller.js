@@ -31,7 +31,7 @@
             .then(function () {
                 $stomp.subscribe('/topic/message', function (payload) {
                    vm.comments = payload;
-                   console.log(vm.comments);
+                   $scope.$apply();
                 });
             });
 
@@ -51,7 +51,6 @@
             return StoryModalService.loadComments(vm.story.title)
                 .then(function(data) {
                     vm.comments = data;
-                    console.log(vm.comments);
                 })
                 .catch(function(error) {
                     console.log(error);

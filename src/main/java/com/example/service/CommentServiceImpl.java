@@ -17,7 +17,7 @@ public class CommentServiceImpl implements CommentService{
     private CommentRepo commentRepo;
 
     @Autowired
-    private SimpMessagingTemplate template;
+    private SimpMessagingTemplate simpMessagingTemplate;
 
     @Override
     public List<Comment> findAllByStoryTitle(String storyTitle) {
@@ -34,7 +34,8 @@ public class CommentServiceImpl implements CommentService{
     public Comment save(Comment comment) {
         Comment savedComment = commentRepo.save(comment);
         if(savedComment!= null) {
-            template.convertAndSend("/topic/message", findAllByStoryTitle(savedComment.getStory().getTitle()));
+            simpMessagingTemplate.convertAndSend("/out/message",
+                    findAllByStoryTitle(savedComment.getStory().getTitle()));
         }
         return savedComment;
     }

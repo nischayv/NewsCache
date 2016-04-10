@@ -29,13 +29,11 @@
         $stomp
             .connect('/newscache/stomp')
             .then(function () {
-                $stomp.subscribe('/topic/message', function (payload) {
+                $stomp.subscribe('/out/message', function (payload) {
                    vm.comments = payload;
                    $scope.$apply();
                 });
             });
-
-
 
         function activate() {
             return loadComments()
@@ -63,7 +61,7 @@
             vm.commentDto.username =  vm.username;
             return StoryModalService.saveComment(vm.commentDto)
                 .then(function(data) {
-                   vm.comments.push(data);
+                  // vm.comments.push(data);
                    //$scope.compile();
                 })
                 .catch(function(error) {

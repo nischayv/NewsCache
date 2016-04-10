@@ -14,7 +14,7 @@
             </div>
         </div>
         <div id="commentWrapper" class="col-md-6" style="height: 54vh; overflow: auto">
-        <div class="panel-group"  ng-repeat="comment in vm.comments">
+        <div class="panel-group"  ng-repeat="comment in vm.comments track by $index">
             <div class="panel panel-default">
                 <div class="panel-heading">{{comment.user.firstName}} {{comment.user.lastName}}</div>
                 <div class="panel-body">

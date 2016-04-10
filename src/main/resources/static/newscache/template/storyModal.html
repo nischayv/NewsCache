@@ -24,16 +24,18 @@
         </div>
     </div>
 
-    <div class="panel-group col-md-6" style="margin-top: 10px">
-        <div class="panel panel-default"  style="width: 97%;">
-            <div class="panel-body form-inline">
-                <button class="btn btn-primary" style="float: right;" ng-click="vm.save()">Post</button>
-                <div style="overflow: hidden; padding-right: 10px">
-                    <input type="text" class="form-control" placeholder="Comment" style="width: 100%" ng-model="vm.storyComment">
+        <div class="panel-group col-md-6" style="margin-top: 10px">
+            <div class="panel panel-default"  style="width: 97%;">
+                <div class="panel-body form-inline">
+                    <form id="comment">
+                        <button class="btn btn-primary" style="float: right;" ng-click="vm.save()">Post</button>
+                        <div style="overflow: hidden; padding-right: 10px">
+                            <input type="text" class="form-control" placeholder="Comment" style="width: 100%" ng-model="vm.storyComment">
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-    </div>
 
     </div>
 </div>

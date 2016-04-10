@@ -34,8 +34,7 @@ public class CommentServiceImpl implements CommentService{
     public Comment save(Comment comment) {
         Comment savedComment = commentRepo.save(comment);
         if(savedComment!= null) {
-            simpMessagingTemplate.convertAndSend("/out/message",
-                    findAllByStoryTitle(savedComment.getStory().getTitle()));
+            simpMessagingTemplate.convertAndSend("/out/message", savedComment);
         }
         return savedComment;
     }

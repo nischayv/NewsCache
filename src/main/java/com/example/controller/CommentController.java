@@ -29,7 +29,7 @@ public class CommentController {
         Comment comment = new Comment(userService.findByUsername((commentDto.getUsername())),
                 storyService.findByTitle(commentDto.getStoryTitle()), commentDto.getStoryComment());
         commentService.save(comment);
-        return new ResponseEntity<>(comment, HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @RequestMapping(value = "/load/{storyTitle}",  method = RequestMethod.GET)

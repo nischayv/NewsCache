@@ -38,7 +38,7 @@
             <column name="lastname">Venkatram</column>
             <column name="email">nischayv@iastate.edu</column>
             <column name="username">nischayv</column>
-            <column name="password">password</column>
+            <column name="password">$2a$12$2tCI9dcjEyhtV2.9z87V.eONmPv0at6GPd/28MeT8qp15WT9vFQSO</column> <!-- son of zeus -->
         </insert>
         <insert tableName="user">
             <column name="id">101</column>

@@ -54,6 +54,7 @@ bootRun.dependsOn 'npmInstall', 'installGulp', 'gulp_bower', 'gulp_compress'
 dependencies {
 	compile("org.springframework.boot:spring-boot-starter-web")
 	compile("org.springframework.boot:spring-boot-starter-websocket")
+	compile("org.springframework.boot:spring-boot-starter-security")
 	compile("org.springframework:spring-messaging")
 	compile("org.apache.commons:commons-lang3:3.4")
 	compile("org.webjars:bootstrap:3.3.5")

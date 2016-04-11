@@ -1,6 +1,7 @@
 package com.example.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.LinkedList;
@@ -9,7 +10,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "user")
-public class User implements java.io.Serializable{
+public class User implements java.io.Serializable, UserDetails {
 
     private Long id;
     private String firstName;
@@ -19,9 +20,11 @@ public class User implements java.io.Serializable{
     private String password;
     @JsonIgnore
     private List<Comment> comments;
+    private List<UserSecurityCredential> userSecurityCredentials;
 
     public User() {
         comments = new LinkedList<>();
+        userSecurityCredentials = new LinkedList<>();
     }
 
     @Id
@@ -63,6 +66,7 @@ public class User implements java.io.Serializable{
         this.email = email;
     }
 
+    @Override
     @Column(name = "username")
     public String getUsername() {
         return username;
@@ -72,6 +76,7 @@ public class User implements java.io.Serializable{
         this.username = username;
     }
 
+    @Override
     @Column(name = "password")
     public String getPassword() {
         return password;
@@ -89,4 +94,43 @@ public class User implements java.io.Serializable{
     public void setComments(List<Comment> comments) {
         this.comments = comments;
     }
+
+    @OneToMany(mappedBy = "user")
+    public List<UserSecurityCredential> getUserSecurityCredentials() {
+        return userSecurityCredentials;
+    }
+
+    public void setUserSecurityCredentials(List<UserSecurityCredential> userSecurityCredentials) {
+        this.userSecurityCredentials = userSecurityCredentials;
+    }
+    @Override
+    @Transient
+    public List<UserSecurityCredential> getAuthorities() {
+        return getUserSecurityCredentials();
+    }
+
+    @Override
+    @Transient
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    @Transient
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    @Transient
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    @Transient
+    public boolean isEnabled() {
+        return true;
+    }
+
 }

@@ -16,10 +16,10 @@
             <!--<column name="id">101</column>-->
             <!--<column name="name">Football</column>-->
         <!--</insert>-->
-        <insert tableName="interest">
-            <column name="id">102</column>
-            <column name="name">Anime</column>
-        </insert>
+        <!--<insert tableName="interest">-->
+            <!--<column name="id">102</column>-->
+            <!--<column name="name">Anime</column>-->
+        <!--</insert>-->
         <!--<insert tableName="interest">-->
             <!--<column name="id">103</column>-->
             <!--<column name="name">Tv Shows</column>-->
@@ -39,6 +39,15 @@
             <column name="email">nischayv@iastate.edu</column>
             <column name="username">nischayv</column>
             <column name="password">$2a$12$2tCI9dcjEyhtV2.9z87V.eONmPv0at6GPd/28MeT8qp15WT9vFQSO</column> <!-- son of zeus -->
+        </insert>
+        <insert tableName="security_credential">
+            <column name="id">100</column>
+            <column name="authority">admin</column>
+        </insert>
+        <insert tableName="user_security_credential">
+            <column name="id">100</column>
+            <column name="security_credential_id">100</column>
+            <column name="user_id">100</column>
         </insert>
         <insert tableName="user">
             <column name="id">101</column>

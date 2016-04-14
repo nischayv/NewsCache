@@ -16,21 +16,20 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
-@EnableGlobalMethodSecurity(prePostEnabled = true)
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private UserDetailsService userDetailsService;
 
-    @Autowired
-    private AuthFailure authFailure;
-
-    @Autowired
-    private AuthSuccess authSuccess;
-
-    @Autowired
-    private EntryPointUnauthorizedHandler unauthorizedHandler;
+//    @Autowired
+//    private AuthFailure authFailure;
+//
+//    @Autowired
+//    private AuthSuccess authSuccess;
+//
+//    @Autowired
+//    private EntryPointUnauthorizedHandler unauthorizedHandler;
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
@@ -41,24 +40,35 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/api/**").permitAll()
+                .antMatchers("/api/**").authenticated()
                 .and()
                 .httpBasic()
                 .and()
                 .formLogin()
-//                .loginPage("/login")
-                .successHandler(authSuccess)
-                .failureHandler(authFailure)
+                .loginPage("/login")
+//                .successHandler(authSuccess)
+//                .failureHandler(authFailure)
                 .and()
                 .csrf().disable()
-                .exceptionHandling()
-                .authenticationEntryPoint(unauthorizedHandler)
-                .and()
+//                .exceptionHandling()
+//                .authenticationEntryPoint(unauthorizedHandler)
+//                .and()
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/api/logout"))
                 .deleteCookies("JSESSIONID")
                 .invalidateHttpSession(true)
         ;
+//                .csrf().disable()
+//                .exceptionHandling()
+////                .authenticationEntryPoint(unauthorizedHandler)
+//                .and()
+//                .formLogin()
+////                .successHandler(authSuccess)
+////                .failureHandler(authFailure)
+//                .and()
+//                .authorizeRequests()
+//                .antMatchers("/**")
+//                .permitAll();
     }
 
 

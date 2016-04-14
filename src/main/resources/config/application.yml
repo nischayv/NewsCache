@@ -29,8 +29,8 @@ spring:
             hibernate.cache.use_query_cache: false
             hibernate.generate_statistics: false
 
-    security:
-        sessions: always
+#    security:
+#        sessions: always
 
     jmx:
         enabled: false

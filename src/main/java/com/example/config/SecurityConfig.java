@@ -22,14 +22,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsService userDetailsService;
 
-//    @Autowired
-//    private AuthFailure authFailure;
-//
-//    @Autowired
-//    private AuthSuccess authSuccess;
-//
-//    @Autowired
-//    private EntryPointUnauthorizedHandler unauthorizedHandler;
+    @Autowired
+    private AuthFailure authFailure;
+
+    @Autowired
+    private AuthSuccess authSuccess;
+
+    @Autowired
+    private EntryPointUnauthorizedHandler unauthorizedHandler;
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
@@ -39,36 +39,25 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .authorizeRequests()
-                .antMatchers("/api/**").authenticated()
-                .and()
-                .httpBasic()
+                .csrf().disable()
+                .exceptionHandling()
+                .authenticationEntryPoint(unauthorizedHandler)
                 .and()
                 .formLogin()
-                .loginPage("/login")
-//                .successHandler(authSuccess)
-//                .failureHandler(authFailure)
+                .successHandler(authSuccess)
+                .failureHandler(authFailure)
                 .and()
-                .csrf().disable()
-//                .exceptionHandling()
-//                .authenticationEntryPoint(unauthorizedHandler)
-//                .and()
+                .authorizeRequests()
+                .antMatchers("/css/**").authenticated()
+                .antMatchers("/webjars/**").authenticated()
+                .antMatchers("/**")
+                .permitAll()
+                .and()
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/api/logout"))
                 .deleteCookies("JSESSIONID")
                 .invalidateHttpSession(true)
         ;
-//                .csrf().disable()
-//                .exceptionHandling()
-////                .authenticationEntryPoint(unauthorizedHandler)
-//                .and()
-//                .formLogin()
-////                .successHandler(authSuccess)
-////                .failureHandler(authFailure)
-//                .and()
-//                .authorizeRequests()
-//                .antMatchers("/**")
-//                .permitAll();
     }
 
 

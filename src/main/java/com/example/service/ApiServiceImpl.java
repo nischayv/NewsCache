@@ -18,35 +18,36 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
-public class ApiServiceImpl implements ApiService{
+public class ApiServiceImpl{
+    // implements ApiService
 
-    @Autowired
-    private InterestService interestService;
-
-    @Autowired
-    private StoryRepo storyRepo;
-
-    //TODO remove extra 0 in fixedRate to make it hourly pull
-    @Override
-    @Scheduled(fixedRate = 360000000)
-    public void loadAllStories() throws JsonProcessingException {
-        RestTemplate restTemplate = new RestTemplate();
-        Map<String, String> map;
-
-        for (String interestName : interestService.findAllInterestNames()) {
-            map = new HashMap<>();
-            map.put("interestName", interestName);
-            map.put("key", Constants.getFarooKey());
-            ResponseEntity<StoryList> storyListEntity = restTemplate.getForEntity(Constants.getFarooUrl(), StoryList.class, map);
-            if (storyListEntity.getStatusCode() == HttpStatus.OK) {
-                for (Story story : storyListEntity.getBody().getResults()) {
-                    // && storyRepo.findByUrl(story.getUrl()) == null
-                    if (story.getIurl().length() > 10 && storyRepo.findByUrl(story.getUrl()) == null) {
-                        story.setInterestName(interestName);
-                        storyRepo.save(story);
-                    }
-                }
-            }
-        }
-    }
+//    @Autowired
+//    private InterestService interestService;
+//
+//    @Autowired
+//    private StoryRepo storyRepo;
+//
+//    //TODO remove extra 0 in fixedRate to make it hourly pull
+//    @Override
+//    @Scheduled(fixedRate = 360000000)
+//    public void loadAllStories() throws JsonProcessingException {
+//        RestTemplate restTemplate = new RestTemplate();
+//        Map<String, String> map;
+//
+//        for (String interestName : interestService.findAllInterestNames()) {
+//            map = new HashMap<>();
+//            map.put("interestName", interestName);
+//            map.put("key", Constants.getFarooKey());
+//            ResponseEntity<StoryList> storyListEntity = restTemplate.getForEntity(Constants.getFarooUrl(), StoryList.class, map);
+//            if (storyListEntity.getStatusCode() == HttpStatus.OK) {
+//                for (Story story : storyListEntity.getBody().getResults()) {
+//                    // && storyRepo.findByUrl(story.getUrl()) == null
+//                    if (story.getIurl().length() > 10 && storyRepo.findByUrl(story.getUrl()) == null) {
+//                        story.setInterestName(interestName);
+//                        storyRepo.save(story);
+//                    }
+//                }
+//            }
+//        }
+//    }
 }

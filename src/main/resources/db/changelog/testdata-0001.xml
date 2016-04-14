@@ -56,6 +56,38 @@
             <column name="title">Microsoft demos ‘Holoportation’ with real-time holograms straight out of Star Wars	</column>
             <column name="interestName">Star Wars</column>
         </insert>
+        <insert tableName="story">
+            <column name="id">101</column>
+            <column name="url">http://www.engadget.com/2016/04/13/star-wars-battlefront-lando-bespin-dlc/	</column>
+            <column name="iurl">http://o.aolcdn.com/hss/storage/midas/bf0a60d5ed7e97c45ce3f772b69a3894/203683301/swbfdlcx.jpg	</column>
+            <column name="description">DICE just can't stop making wonderful downloadable content for Star Wars: Battlefront. And although we already knew the game was getting new ...	</column>
+            <column name="title">'Star Wars: Battlefront' gets Lando Calrissian in Bespin DLC	</column>
+            <column name="interestName">Star Wars</column>
+        </insert>
+        <!--<insert tableName="story">-->
+            <!--<column name="id">102</column>-->
+            <!--<column name="url">	http://www.slashgear.com/microsoft-demos-holoportation-with-real-time-holograms-straight-out-of-star-wars-27433611/</column>-->
+            <!--<column name="iurl">http://cdn.slashgear.com/wp-content/uploads/2016/03/264043-000005-680x361.jpg	</column>-->
+            <!--<column name="description">	Microsoft has shown off a lot of concept projects in the last year related to HoloLens, its $3,000 augmented reality headset, but this one just ...</column>-->
+            <!--<column name="title">Microsoft demos ‘Holoportation’ with real-time holograms straight out of Star Wars	</column>-->
+            <!--<column name="interestName">Star Wars</column>-->
+        <!--</insert>-->
+        <!--<insert tableName="story">-->
+            <!--<column name="id">103</column>-->
+            <!--<column name="url">	http://www.slashgear.com/microsoft-demos-holoportation-with-real-time-holograms-straight-out-of-star-wars-27433611/</column>-->
+            <!--<column name="iurl">http://cdn.slashgear.com/wp-content/uploads/2016/03/264043-000005-680x361.jpg	</column>-->
+            <!--<column name="description">	Microsoft has shown off a lot of concept projects in the last year related to HoloLens, its $3,000 augmented reality headset, but this one just ...</column>-->
+            <!--<column name="title">Microsoft demos ‘Holoportation’ with real-time holograms straight out of Star Wars	</column>-->
+            <!--<column name="interestName">Star Wars</column>-->
+        <!--</insert>-->
+        <!--<insert tableName="story">-->
+            <!--<column name="id">104</column>-->
+            <!--<column name="url">	http://www.slashgear.com/microsoft-demos-holoportation-with-real-time-holograms-straight-out-of-star-wars-27433611/</column>-->
+            <!--<column name="iurl">http://cdn.slashgear.com/wp-content/uploads/2016/03/264043-000005-680x361.jpg	</column>-->
+            <!--<column name="description">	Microsoft has shown off a lot of concept projects in the last year related to HoloLens, its $3,000 augmented reality headset, but this one just ...</column>-->
+            <!--<column name="title">Microsoft demos ‘Holoportation’ with real-time holograms straight out of Star Wars	</column>-->
+            <!--<column name="interestName">Star Wars</column>-->
+        <!--</insert>-->
         <insert tableName="comment">
             <column name="id">100</column>
             <column name="userComment">I love this web app!!</column>

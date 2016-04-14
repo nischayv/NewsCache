@@ -17,10 +17,7 @@ public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry config) {
-        // use the /topic prefix for outgoing WebSocket communication
         config.enableSimpleBroker("/out");
-
-        // use the /app prefix for others
         config.setApplicationDestinationPrefixes("/");
     }
 }

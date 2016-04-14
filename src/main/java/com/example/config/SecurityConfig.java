@@ -13,6 +13,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -20,28 +21,44 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private UserDetailsService UserServiceImpl;
+    private UserDetailsService userDetailsService;
+
+    @Autowired
+    private AuthFailure authFailure;
+
+    @Autowired
+    private AuthSuccess authSuccess;
+
+    @Autowired
+    private EntryPointUnauthorizedHandler unauthorizedHandler;
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(UserServiceImpl).passwordEncoder(new BCryptPasswordEncoder(12));
+        auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder(12));
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/css/**").permitAll()
-                .antMatchers("/webjars/**").permitAll()
-                .anyRequest().authenticated()
-//                .and()
-//                .formLogin()
+        http
+                .authorizeRequests()
+                .antMatchers("/api/**").permitAll()
+                .and()
+                .httpBasic()
+                .and()
+                .formLogin()
 //                .loginPage("/login")
-//                .permitAll()
+                .successHandler(authSuccess)
+                .failureHandler(authFailure)
+                .and()
+                .csrf().disable()
+                .exceptionHandling()
+                .authenticationEntryPoint(unauthorizedHandler)
                 .and()
                 .logout()
-                .permitAll()
-                .and()
-                .csrf().disable();
+                .logoutRequestMatcher(new AntPathRequestMatcher("/api/logout"))
+                .deleteCookies("JSESSIONID")
+                .invalidateHttpSession(true)
+        ;
     }
 
 

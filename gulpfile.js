@@ -25,14 +25,17 @@ var pkg = {
             './src/main/resources/static/newscache/service/navbar.service.js',
             './src/main/resources/static/newscache/service/interest.service.js',
             './src/main/resources/static/newscache/service/storyModal.service.js',
+            './src/main/resources/static/newscache/service/login.service.js',
             //controller module
             './src/main/resources/static/newscache/controller/controller.config.js',
             './src/main/resources/static/newscache/controller/navbar.controller.js',
             './src/main/resources/static/newscache/controller/interest.controller.js',
             './src/main/resources/static/newscache/controller/storyModal.controller.js',
+            './src/main/resources/static/newscache/controller/login.controller.js',
             //route module
             './src/main/resources/static/newscache/route/route.config.js',
             './src/main/resources/static/newscache/route/interest.routes.js',
+            './src/main/resources/static/newscache/route/login.routes.js',
             //directive module
             './src/main/resources/static/newscache/directive/directive.config.js',
             './src/main/resources/static/newscache/directive/navbar.directive.js',
@@ -44,7 +47,8 @@ var pkg = {
             './src/main/resources/static/newscache/template/login.html',
             './src/main/resources/static/newscache/template/navbar.html',
             './src/main/resources/static/newscache/template/interest.html',
-            './src/main/resources/static/newscache/template/storyModal.html'
+            './src/main/resources/static/newscache/template/storyModal.html',
+            './src/main/resources/static/newscache/template/login.html'
         ]
     }
 };

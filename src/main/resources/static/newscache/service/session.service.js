@@ -7,9 +7,9 @@
         ])
         .factory('SessionService', SessionService);
 
-    SessionService.$inject = ['$resource', '$q', '$location'];
+    SessionService.$inject = ['$resource', '$q', '$location', '$http'];
 
-    function SessionService($resource, $q, $location) {
+    function SessionService($resource, $q, $location, $http) {
 
         return {
             login: login,
@@ -19,25 +19,30 @@
         };
 
         function login(username, password) {
-            var headers = {authorization : "Basic " +
-                btoa(username + ":" + password)};
-            return $resource('./api/user', {headers: headers}, {
-                execute: {
-                    method: 'GET'
-                }
-            }).execute().$promise
-                .then(success)
-                .catch(fail);
+            var headers = {authorization : "Basic " + btoa(username + ":" + password)};
+            // return $resource('./api/user', {headers: headers.authorization}, {
+            //     execute: {
+            //         method: 'GET'
+            //     }
+            // }).execute().$promise
+            //     .then(success)
+            //     .catch(fail);
+            //
+            // function success(data) {
+            //     console.log(data);
+            //     return data;
+            // }
+            //
+            // function fail (error) {
+            //     console.log(error);
+            //     return $q.reject(error);
+            // }
 
-            function success(data) {
+            $http.get('./api/user', {headers : headers}).success(function(data) {
                 console.log(data);
-                return data;
-            }
-
-            function fail (error) {
-                console.log(error);
-                return $q.reject(error);
-            }
+            }).error(function(data) {
+               console.log(data);
+            });
         }
 
         function logout() {

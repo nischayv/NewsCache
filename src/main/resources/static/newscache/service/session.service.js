@@ -19,31 +19,25 @@
         };
 
         function login(username, password) {
+            console.log(username + password);
             var headers = {authorization : "Basic " + btoa(username + ":" + password)};
             return $resource('./api/user', {}, {
                 execute: {
                     method: 'GET',
                     headers: headers
                 }
-            }).execute().$promise
+            }).execute().$promise 
                 .then(success)
                 .catch(fail);
 
             function success(data) {
-                console.log(data);
                 return data;
             }
 
             function fail (error) {
-                console.log(error);
+                console.log(error + 'In session service');
                 return $q.reject(error);
             }
-
-            // $http.get('./api/user', {headers : headers}).success(function(data) {
-            //     console.log(data);
-            // }).error(function(data) {
-            //    console.log(data);
-            // });
         }
 
         function logout() {

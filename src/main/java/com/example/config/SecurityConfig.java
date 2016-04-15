@@ -43,8 +43,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .httpBasic()
                 .and()
                 .csrf().disable()
+                .exceptionHandling()
+                .authenticationEntryPoint(unauthorizedHandler)
+                .and()
                 .logout()
-//                .logoutRequestMatcher(new AntPathRequestMatcher("/api/logout"))
+                .logoutRequestMatcher(new AntPathRequestMatcher("/api/logout"))
                 .deleteCookies("JSESSIONID")
                 .invalidateHttpSession(true)
         ;

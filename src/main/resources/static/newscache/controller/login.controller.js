@@ -18,11 +18,9 @@
         vm.submit = submit;
         
         function submit() {
-            return SessionService.login(vm.username, vm.password)
-                .then(function (data) {
-                    console.log(data);
-                })
+            return LoginService.login(vm.username, vm.password)
                 .catch(function(error) {
+                    //TODO nischayv Handle error on html
                     console.log(error); 
                 });
         }

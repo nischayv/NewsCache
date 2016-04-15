@@ -9,15 +9,16 @@
         ])
         .config(config);
 
-    config.$inject = ['$routeProvider'];
+    config.$inject = ['$routeProvider', '$httpProvider'];
 
-    function config($routeProvider) {
+    function config($routeProvider, $httpProvider) {
         $routeProvider
             .when('/home', {
                 templateUrl: 'newscache/template/home.html',
                 controller: 'HomeController',
                 controllerAs: 'vm'
             });
+        $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
     }
 
 }());

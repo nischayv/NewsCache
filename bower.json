@@ -14,7 +14,8 @@
     "bootstrap": "~3.3.6",
     "jquery": "~2.1.4",
     "angular-masonry": "0.16.0",
-    "ng-stomp": "^0.2.0"
+    "ng-stomp": "^0.2.0",
+    "angular-ui-router": "^0.2.18"
   },
   "devDependencies": {
     "jasmine-sinon": "~0.4.0",

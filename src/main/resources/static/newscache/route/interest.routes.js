@@ -11,7 +11,7 @@
 
     config.$inject = ['$routeProvider'];
 
-    function config($routeProvider) {
+    function config($routeProvider) { 
         $routeProvider
             .when('/interest', {
                 templateUrl: 'newscache/template/interest.html',

@@ -12,6 +12,8 @@
 
     function LoginController(LoginService) {
         var vm = this;
+        vm.username = '';
+        vm.password = '';
 
     }
 }());

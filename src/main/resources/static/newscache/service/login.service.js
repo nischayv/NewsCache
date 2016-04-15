@@ -1,4 +1,3 @@
-
 (function() {
     'use strict';
 
@@ -13,7 +12,7 @@
     function LoginService($resource, $q, $location) {
 
         return {
-
+            
         };
 
 

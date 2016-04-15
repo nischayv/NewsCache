@@ -8,6 +8,7 @@
             'wu.masonry',
             'ngStomp',
             'ui.router',
+            'ngCookies',
             'newscache.config',
             'newscache.service',
             'newscache.controller',

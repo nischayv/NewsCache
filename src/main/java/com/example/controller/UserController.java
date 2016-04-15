@@ -16,8 +16,18 @@ import java.util.List;
 @RequestMapping(value = "/api/")
 public class UserController {
 
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public ResponseEntity<?> login() {
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+//    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+//    public ResponseEntity<?> logout() {
+//        return new ResponseEntity<>(HttpStatus.OK);
+//    }
+
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     public ResponseEntity<?> user(Principal user) {
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(user, HttpStatus.OK);
     }
 }

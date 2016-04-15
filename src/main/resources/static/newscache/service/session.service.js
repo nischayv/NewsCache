@@ -7,9 +7,9 @@
         ])
         .factory('SessionService', SessionService);
 
-    SessionService.$inject = ['$resource', '$q', '$location', '$http'];
+    SessionService.$inject = ['$resource', '$q', '$location', '$cookies'];
 
-    function SessionService($resource, $q, $location, $http) {
+    function SessionService($resource, $q, $location, $cookies) {
 
         return {
             login: login,
@@ -19,18 +19,17 @@
         };
 
         function login(username, password) {
-            console.log(username + password);
             var headers = {authorization : "Basic " + btoa(username + ":" + password)};
-            return $resource('./api/user', {}, {
+            return $resource('./api/login', {}, {
                 execute: {
                     method: 'GET',
                     headers: headers
                 }
-            }).execute().$promise 
+            }).execute().$promise
                 .then(success)
                 .catch(fail);
 
-            function success(data) {
+            function success(data) { 
                 return data;
             }
 
@@ -45,11 +44,26 @@
         }
 
         function isLoggedIn() {
-
+            var cookies = $cookies.get('JSESSIONID');
+            return angular.isUndefined(cookies);
         }
 
         function getCurrentUser() {
+            return $resource('./api/user', {}, {
+                execute: {
+                    method: 'GET'
+                }
+            }).execute().$promise
+                .then(success)
+                .catch(fail);
 
+            function success(data) {
+                return data;
+            }
+
+            function fail (error) {
+                return $q.reject(error);
+            }
         }
 
 

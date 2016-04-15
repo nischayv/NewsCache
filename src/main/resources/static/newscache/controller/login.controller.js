@@ -4,7 +4,8 @@
 
     angular
         .module('newscache.controller.login', [
-            'newscache.login.service'
+            'newscache.login.service',
+            'newscache.session.service'
         ])
         .controller('LoginController', LoginController);
 
@@ -22,7 +23,7 @@
                     console.log(data);
                 })
                 .catch(function(error) {
-                    console.log(error); 
+                    console.log(error);
                 });
         }
 

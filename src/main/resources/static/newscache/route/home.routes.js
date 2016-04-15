@@ -2,9 +2,9 @@
     'use strict';
 
     angular
-        .module('newscache.route.login', [
+        .module('newscache.route.home', [
             'ngRoute',
-            'newscache.controller.login',
+            'newscache.controller.home',
             'newscache.templates'
         ])
         .config(config);
@@ -13,9 +13,9 @@
 
     function config($routeProvider) {
         $routeProvider
-            .when('/login', {
-                templateUrl: 'newscache/template/login.html',
-                controller: 'LoginController',
+            .when('/home', {
+                templateUrl: 'newscache/template/home.html',
+                controller: 'HomeController',
                 controllerAs: 'vm'
             });
     }

@@ -6,6 +6,7 @@
         'newscache.navbar.service',
         'newscache.storyModal.service',
         'newscache.session.service',
-        'newscache.login.service'
+        'newscache.login.service',
+        'newscache.home.service'
         ]);
 }());

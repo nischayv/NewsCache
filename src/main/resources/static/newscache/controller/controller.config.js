@@ -6,6 +6,7 @@
             'newscache.controller.navbar',
             'newscache.controller.interest',
             'newscache.controller.storyModal',
-            'newscache.controller.login'
+            'newscache.controller.login',
+            'newscache.controller.home'
         ]);
 }());

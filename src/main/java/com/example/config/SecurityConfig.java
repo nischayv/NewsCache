@@ -34,22 +34,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder(12));
     }
 
-//    @Override
-//    public void configure(WebSecurity web) throws Exception {
-//        web.ignoring().antMatchers("/css**", "/img**", "/js/**");
-//    }
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
         http
-                .authorizeRequests().antMatchers("/index.html", "login.html", "/").permitAll()
-                .antMatchers("/**").authenticated()
+                .authorizeRequests().antMatchers("/api/**").authenticated()
                 .and()
                 .httpBasic()
                 .and()
-//                .authorizeRequests()
-//                .antMatchers("/index.html", "/login.html", "/").permitAll()
                 .csrf().disable()
                 .logout()
 //                .logoutRequestMatcher(new AntPathRequestMatcher("/api/logout"))

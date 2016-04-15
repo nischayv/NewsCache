@@ -18,10 +18,11 @@
             getCurrentUser: getCurrentUser
         };
 
-        function login() {
-            return $resource('./api/login', {}, {
+        function login(username, password) {
+            return $resource('./api/user',  "username=" + username +
+                "&password=" + password, {
                 execute: {
-                    method: 'POST',
+                    method: 'GET',
                     headers: {
                         'Content-Type' : 'application/x-www-form-urlencoded'
                     }
@@ -31,6 +32,7 @@
                 .catch(fail);
 
             function success(data) {
+                console.log(data);
                 return data;
             }
 
@@ -49,7 +51,7 @@
         }
 
         function getCurrentUser() {
-            
+
         }
 
 

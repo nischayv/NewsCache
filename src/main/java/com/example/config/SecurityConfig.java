@@ -25,12 +25,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private UserDetailsService userDetailsService;
 
     @Autowired
-    private AuthFailure authFailure;
-
-    @Autowired
-    private AuthSuccess authSuccess;
-
-    @Autowired
     private EntryPointUnauthorizedHandler unauthorizedHandler;
 
     @Autowired
@@ -40,7 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/css**", "/img**", "/js/**", "/webjars/**");
+        web.ignoring().antMatchers("/css**", "/img**", "/js/**");
     }
 
     @Override
@@ -50,14 +44,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .httpBasic()
                 .and()
                 .authorizeRequests()
-                .antMatchers("/index.html", "/login.html").permitAll()
                 .anyRequest().authenticated()
-                .and()
-                .csrf().disable()
-                .logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/api/logout"))
-                .deleteCookies("JSESSIONID")
-                .invalidateHttpSession(true)
+//                .and()
+//                .csrf().disable()
+//                .logout()
+//                .logoutRequestMatcher(new AntPathRequestMatcher("/api/logout"))
+//                .deleteCookies("JSESSIONID")
+//                .invalidateHttpSession(true)
         ;
     }
 

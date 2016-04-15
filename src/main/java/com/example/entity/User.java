@@ -20,6 +20,7 @@ public class User implements java.io.Serializable, UserDetails {
     private String password;
     @JsonIgnore
     private List<Comment> comments;
+    @JsonIgnore
     private List<UserSecurityCredential> userSecurityCredentials;
 
     public User() {

@@ -3,8 +3,10 @@ package com.example.config;
 import com.example.service.UserSecurityCredentialServiceImpl;
 import com.example.service.interfaces.UserSecurityCredentialService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -18,7 +20,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -32,25 +34,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder(12));
     }
 
-    @Override
-    public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/css**", "/img**", "/js/**");
-    }
+//    @Override
+//    public void configure(WebSecurity web) throws Exception {
+//        web.ignoring().antMatchers("/css**", "/img**", "/js/**");
+//    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
         http
+                .authorizeRequests().antMatchers("/api/**").authenticated()
+                .and()
                 .httpBasic()
                 .and()
-                .authorizeRequests()
-                .anyRequest().authenticated()
-//                .and()
-//                .csrf().disable()
-//                .logout()
+//                .authorizeRequests()
+//                .antMatchers("/index.html", "/login.html", "/").permitAll()
+                .csrf().disable()
+                .logout()
 //                .logoutRequestMatcher(new AntPathRequestMatcher("/api/logout"))
-//                .deleteCookies("JSESSIONID")
-//                .invalidateHttpSession(true)
+                .deleteCookies("JSESSIONID")
+                .invalidateHttpSession(true)
         ;
     }
 

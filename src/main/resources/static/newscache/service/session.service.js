@@ -19,13 +19,11 @@
         };
 
         function login(username, password) {
-            return $resource('./api/user',  "username=" + username +
-                "&password=" + password, {
+            var headers = {authorization : "Basic " +
+                btoa(username + ":" + password)};
+            return $resource('./api/user', {headers: headers}, {
                 execute: {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type' : 'application/x-www-form-urlencoded'
-                    }
+                    method: 'GET'
                 }
             }).execute().$promise
                 .then(success)

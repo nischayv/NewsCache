@@ -18,13 +18,13 @@
         vm.submit = submit;
         
         function submit() {
-            return SessionService.login(vm.username, vm.password);
-                // .then(function (data) {
-                //     console.log(data);
-                // })
-                // .catch(function(error) {
-                //     console.log(error);
-                // });
+            return SessionService.login(vm.username, vm.password)
+                .then(function (data) {
+                    console.log(data);
+                })
+                .catch(function(error) {
+                    console.log(error); 
+                });
         }
 
     }

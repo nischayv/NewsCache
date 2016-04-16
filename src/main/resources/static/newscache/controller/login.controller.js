@@ -27,14 +27,7 @@
         }
 
         function activate() {
-            return SessionService.isLoggedIn()
-                .then(function (data){
-                    console.log(data);
-                })
-                .catch(function(error) {
-                    //TODO nischayv Handle error in the html
-                    console.log(error);
-                });
+            console.log(SessionService.isLoggedIn());
         }
 
     }

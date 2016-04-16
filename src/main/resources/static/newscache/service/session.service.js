@@ -7,10 +7,10 @@
         ])
         .factory('SessionService', SessionService);
 
-    SessionService.$inject = ['$resource', '$q', '$location', '$cookies'];
+    SessionService.$inject = ['$resource', '$q'];
 
-    function SessionService($resource, $q, $location, $cookies) {
-
+    function SessionService($resource, $q) {
+        var authenticated = false;
         return {
             login: login,
             logout: logout,
@@ -29,7 +29,8 @@
                 .then(success)
                 .catch(fail);
 
-            function success(data) { 
+            function success(data) {
+                authenticated = true;
                 return data;
             }
 
@@ -40,16 +41,31 @@
         }
 
         function logout() {
+            return $resource('./api/logout', {}, {
+                execute: {
+                    method: 'GET'
+                }
+            }).execute().$promise
+                .then(success)
+                .catch(fail);
 
+            function success(data) {
+                authenticated = false;
+                return data;
+            }
+
+            function fail (error) {
+                console.log(error + 'In session service');
+                return $q.reject(error);
+            }
         }
 
         function isLoggedIn() {
-            var cookies = $cookies.get('JSESSIONID');
-            return angular.isUndefined(cookies);
+            return authenticated;
         }
 
         function getCurrentUser() {
-            return $resource('./api/user', {}, {
+            return $resource('./api/user', {}, { 
                 execute: {
                     method: 'GET'
                 }

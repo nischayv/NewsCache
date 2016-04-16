@@ -12,7 +12,12 @@
 
     function HomeController(HomeService, SessionService) {
         var vm = this;
+        vm.activate = activate;
+        activate();
 
+        function activate() {
+            console.log(SessionService.isLoggedIn());
+        }
 
     }
 }());

@@ -9,9 +9,9 @@
         ])
         .config(config);
 
-    config.$inject = ['$routeProvider', '$httpProvider'];
+    config.$inject = ['$routeProvider', '$httpProvider', '$cookiesProvider'];
 
-    function config($routeProvider, $httpProvider) {
+    function config($routeProvider, $httpProvider, $cookiesProvider) {
         $routeProvider
             .when('/login', {
                 templateUrl: 'newscache/template/login.html',
@@ -19,6 +19,8 @@
                 controllerAs: 'vm'
             });
         $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
+        $cookiesProvider.defaults.path = '/newscache/';
+        $cookiesProvider.defaults.domain = 'localhost:8080';
     }
 
 }());

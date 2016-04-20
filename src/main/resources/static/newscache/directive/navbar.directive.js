@@ -8,7 +8,9 @@
         ])
         .directive('navbarDirective', NavbarDirective);
 
-    function NavbarDirective() {
+    NavbarDirective.$inject = ['$location'];
+
+    function NavbarDirective($location) {
         return {
             restrict: 'AE',
             templateUrl: 'newscache/template/navbar.html',

@@ -77,7 +77,7 @@
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="userComment" type="varchar(50)">
+            <column name="userComment" type="varchar(200)">
                 <constraints nullable="true"/>
             </column>
             <column name="story_id" type="bigint">

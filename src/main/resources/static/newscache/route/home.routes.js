@@ -19,8 +19,6 @@
                 controllerAs: 'vm'
             });
         $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
-        $cookiesProvider.defaults.path = '/newscache/';
-        $cookiesProvider.defaults.domain = 'localhost';
     }
 
 }());

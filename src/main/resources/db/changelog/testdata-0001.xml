@@ -12,26 +12,26 @@
             <column name="id">100</column>
             <column name="name">Star Wars</column>
         </insert>
-        <!--<insert tableName="interest">-->
-            <!--<column name="id">101</column>-->
-            <!--<column name="name">Football</column>-->
-        <!--</insert>-->
-        <!--<insert tableName="interest">-->
-            <!--<column name="id">102</column>-->
-            <!--<column name="name">Anime</column>-->
-        <!--</insert>-->
-        <!--<insert tableName="interest">-->
-            <!--<column name="id">103</column>-->
-            <!--<column name="name">Tv Shows</column>-->
-        <!--</insert>-->
-        <!--<insert tableName="interest">-->
-            <!--<column name="id">104</column>-->
-            <!--<column name="name">Arsenal</column>-->
-        <!--</insert>-->
-        <!--<insert tableName="interest">-->
-            <!--<column name="id">105</column>-->
-            <!--<column name="name">Black Sails</column>-->
-        <!--</insert>-->
+        <insert tableName="interest">
+            <column name="id">101</column>
+            <column name="name">Football</column>
+        </insert>
+        <insert tableName="interest">
+            <column name="id">102</column>
+            <column name="name">Anime</column>
+        </insert>
+        <insert tableName="interest">
+            <column name="id">103</column>
+            <column name="name">Tv Shows</column>
+        </insert>
+        <insert tableName="interest">
+            <column name="id">104</column>
+            <column name="name">Arsenal</column>
+        </insert>
+        <insert tableName="interest">
+            <column name="id">105</column>
+            <column name="name">Black Sails</column>
+        </insert>
         <insert tableName="user">
             <column name="id">100</column>
             <column name="firstname">Nischay</column>
@@ -44,6 +44,10 @@
             <column name="id">100</column>
             <column name="authority">admin</column>
         </insert>
+        <insert tableName="security_credential">
+            <column name="id">101</column>
+            <column name="authority">user</column>
+        </insert>
         <insert tableName="user_security_credential">
             <column name="id">100</column>
             <column name="security_credential_id">100</column>
@@ -51,11 +55,16 @@
         </insert>
         <insert tableName="user">
             <column name="id">101</column>
-            <column name="firstname">Captain</column>
-            <column name="lastname">Flint</column>
-            <column name="email">flint@iastate.edu</column>
-            <column name="username">username</column>
-            <column name="password">password</column>
+            <column name="firstname">Charles</column>
+            <column name="lastname">Vane</column>
+            <column name="email">vane@iastate.edu</column>
+            <column name="username">vane</column>
+            <column name="password">$2a$10$LUv1ucgF.Lx8SQ9EakNBheNPfILT7pHXb/YyO0MGVZUizr2uDz25G</column> <!-- test -->
+        </insert>
+        <insert tableName="user_security_credential">
+            <column name="id">101</column>
+            <column name="security_credential_id">101</column>
+            <column name="user_id">101</column>
         </insert>
         <insert tableName="story">
             <column name="id">100</column>
@@ -73,28 +82,36 @@
             <column name="title">'Star Wars: Battlefront' gets Lando Calrissian in Bespin DLC	</column>
             <column name="interestName">Star Wars</column>
         </insert>
+        <insert tableName="story">
+            <column name="id">102</column>
+            <column name="url">	http://geekologie.com/2016/04/to-endor-star-wars-speeder-bike-mod-for.php</column>
+            <column name="iurl">http://geekologie.com/2016/04/19/speeder-bike-segway.jpg	</column>
+            <column name="description">	This is the Star Wars speeder bike mod added to a Segway by Youtuber Rodger Cleye. Looks like a pretty sweet ride. I bet the alien babes come ...</column>
+            <column name="title">To Endor!: Star Wars Speeder Bike Mod For Segway</column>
+            <column name="interestName">Star Wars</column>
+        </insert>
+        <insert tableName="story">
+            <column name="id">103</column>
+            <column name="url">http://www.theverge.com/2016/4/19/11460290/star-wars-force-awakens-making-of-sfx-vfx-nab-2016	</column>
+            <column name="iurl"> http://media.zenfs.com/en_US/News/The%20Verge/starwars5535302e4e9b0_2040.0.0.jpg	</column>
+            <column name="description">... and sound design of movies, and yesterday at the annual NAB trade show I had the pleasure of moderating a panel about the making of Star Wars: ...</column>
+            <column name="title">Watch the Star Wars visual effects team reveal the secrets of The Force Awakens	</column>
+            <column name="interestName">Star Wars</column>
+        </insert>
+        <insert tableName="story">
+            <column name="id">104</column>
+            <column name="url">http://www.businessinsider.com/star-wars-force-awakens-sequel-2016-4	</column>
+            <column name="iurl">http://static4.businessinsider.com/image/57164c7f91058424008bd7eb-786-590/poe.jpg	</column>
+            <column name="description">After the bulletproof success of "Star Wars: The Force Awakens," you might think Disney would do everything to keep things just as they are. ...	</column>
+            <column name="title">'Star Wars' Episode VIII is going to be completely unlike 'Force Awakens' according to stars	</column>
+            <column name="interestName">Star Wars</column>
+        </insert>
         <!--<insert tableName="story">-->
-            <!--<column name="id">102</column>-->
-            <!--<column name="url">	http://www.slashgear.com/microsoft-demos-holoportation-with-real-time-holograms-straight-out-of-star-wars-27433611/</column>-->
-            <!--<column name="iurl">http://cdn.slashgear.com/wp-content/uploads/2016/03/264043-000005-680x361.jpg	</column>-->
-            <!--<column name="description">	Microsoft has shown off a lot of concept projects in the last year related to HoloLens, its $3,000 augmented reality headset, but this one just ...</column>-->
-            <!--<column name="title">Microsoft demos ‘Holoportation’ with real-time holograms straight out of Star Wars	</column>-->
-            <!--<column name="interestName">Star Wars</column>-->
-        <!--</insert>-->
-        <!--<insert tableName="story">-->
-            <!--<column name="id">103</column>-->
-            <!--<column name="url">	http://www.slashgear.com/microsoft-demos-holoportation-with-real-time-holograms-straight-out-of-star-wars-27433611/</column>-->
-            <!--<column name="iurl">http://cdn.slashgear.com/wp-content/uploads/2016/03/264043-000005-680x361.jpg	</column>-->
-            <!--<column name="description">	Microsoft has shown off a lot of concept projects in the last year related to HoloLens, its $3,000 augmented reality headset, but this one just ...</column>-->
-            <!--<column name="title">Microsoft demos ‘Holoportation’ with real-time holograms straight out of Star Wars	</column>-->
-            <!--<column name="interestName">Star Wars</column>-->
-        <!--</insert>-->
-        <!--<insert tableName="story">-->
-            <!--<column name="id">104</column>-->
-            <!--<column name="url">	http://www.slashgear.com/microsoft-demos-holoportation-with-real-time-holograms-straight-out-of-star-wars-27433611/</column>-->
-            <!--<column name="iurl">http://cdn.slashgear.com/wp-content/uploads/2016/03/264043-000005-680x361.jpg	</column>-->
-            <!--<column name="description">	Microsoft has shown off a lot of concept projects in the last year related to HoloLens, its $3,000 augmented reality headset, but this one just ...</column>-->
-            <!--<column name="title">Microsoft demos ‘Holoportation’ with real-time holograms straight out of Star Wars	</column>-->
+            <!--<column name="id">105</column>-->
+            <!--<column name="url">http://www.justjared.com/2016/04/19/prince-william-prince-harry-have-lightsaber-fight-meet-star-wars-cast-characters/	</column>-->
+            <!--<column name="iurl">http://cdn04.cdn.justjared.com/wp-content/uploads/headlines/2016/04/prince-harry-prince-william-star-wars-set-visit.jpg	</column>-->
+            <!--<column name="description">Prince William and Prince Harry engaged in a playful light saber fight on the set of Star Wars on Tuesday (April 19) at Pinewood Studios in Iver ...	</column>-->
+            <!--<column name="title">Prince William & Prince Harry Have Lightsaber Fight, Meet 'Star Wars' Cast & Characters!	</column>-->
             <!--<column name="interestName">Star Wars</column>-->
         <!--</insert>-->
         <insert tableName="comment">

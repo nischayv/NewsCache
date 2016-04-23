@@ -41,7 +41,7 @@
         }
 
         function logout() {
-            return $resource('./api/logout', {}, {
+            return $resource('./logout', {}, {
                 execute: {
                     method: 'GET'
                 }

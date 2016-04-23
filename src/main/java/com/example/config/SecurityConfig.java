@@ -30,6 +30,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private EntryPointUnauthorizedHandler unauthorizedHandler;
 
     @Autowired
+    private RestLogoutSuccessHandler restLogoutSuccessHandler;
+
+    @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder(12));
     }
@@ -48,6 +51,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/api/logout"))
+                .logoutSuccessHandler(restLogoutSuccessHandler)
                 .deleteCookies("JSESSIONID")
                 .invalidateHttpSession(true)
         ;

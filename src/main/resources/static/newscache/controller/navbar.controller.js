@@ -3,17 +3,19 @@
 
     angular
         .module('newscache.controller.navbar', [
-
+            'newscache.session.service',
+            'newscache.navbar.service',
         ])
         .controller('NavbarController', NavbarController);
 
-    NavbarController.$inject = ['NavbarService', '$q', '$scope', '$location'];
+    NavbarController.$inject = ['NavbarService', '$q', '$scope', '$location', 'SessionService'];
 
-    function NavbarController(NavbarService, $q, $scope, $location) {
+    function NavbarController(NavbarService, $q, $scope, $location, SessionService) {
         var vm = this;
         vm.startsWith = startsWith;
         vm.search = findInterest;
-        vm.interest = '';
+        vm.logout = logout;
+        vm.interest = ''; 
         vm.interestList = [];
         vm.errors = {};
         vm.visible = true;
@@ -35,6 +37,16 @@
             return NavbarService.loadInterests()
                 .then(function (data) {
                     vm.interestList = data;
+                })
+                .catch(function (error) {
+                    vm.errors = error;
+                });
+        }
+        
+        function logout() {
+            return SessionService.logout()
+                .then(function () {
+                    $location.path('/login');
                 })
                 .catch(function (error) {
                     vm.errors = error;

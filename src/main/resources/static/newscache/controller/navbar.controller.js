@@ -31,10 +31,6 @@
                 });
         }
 
-        // function isActive(viewLocation) {
-        //     return viewLocation === $location.path();
-        // }
-
         function loadAllInterests() {
             return NavbarService.loadInterests()
                 .then(function (data) {

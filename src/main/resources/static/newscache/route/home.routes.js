@@ -9,9 +9,9 @@
         ])
         .config(config);
 
-    config.$inject = ['$routeProvider', '$httpProvider', '$cookiesProvider'];
+    config.$inject = ['$routeProvider', '$httpProvider'];
 
-    function config($routeProvider, $httpProvider, $cookiesProvider) {
+    function config($routeProvider, $httpProvider) {
         $routeProvider
             .when('/home', {
                 templateUrl: 'newscache/template/home.html',

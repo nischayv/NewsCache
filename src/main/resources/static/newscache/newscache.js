@@ -7,8 +7,6 @@
             'ngMessages',
             'wu.masonry',
             'ngStomp',
-            'ui.router',
-            'ngCookies',
             'newscache.config',
             'newscache.service',
             'newscache.controller',
@@ -18,7 +16,12 @@
         ])
         .config(['$locationProvider', function ($locationProvider) {
         }])
-        .run(function($rootScope, $location) {
+        .run(function($rootScope, $location, SessionService) {
             $rootScope.location = $location;
+            $rootScope.$on( "$routeChangeStart", function() {
+                if(SessionService.isLoggedIn() !== true){
+                    $location.path('/login').search('');
+                }
+            });
         });
 }());

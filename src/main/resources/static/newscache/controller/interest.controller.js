@@ -8,9 +8,9 @@
         ])
         .controller('InterestController', InterestController);
 
-    InterestController.$inject = ['InterestService', '$q', '$scope', '$routeParams', '$uibModal'];
+    InterestController.$inject = ['InterestService', '$q', '$location', '$routeParams', '$uibModal', 'SessionService'];
 
-    function InterestController(InterestService, $q, $scope, $routeParams, $uibModal) {
+    function InterestController(InterestService, $q, $location, $routeParams, $uibModal,SessionService) {
         var vm = this;
         vm.interestName = $routeParams.param;
         vm.interest = {};
@@ -23,6 +23,9 @@
         activate();
 
         function activate() {
+            // if(!SessionService.isLoggedIn()) {
+            //     $location.path('/login').search({param: ''});
+            // }
             return loadInterest()
                 .then(function () {
                     console.log('Loaded the interest');

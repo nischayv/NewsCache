@@ -17,7 +17,8 @@
                 templateUrl: 'newscache/template/login.html',
                 controller: 'LoginController',
                 controllerAs: 'vm'
-            });
+            })
+            .otherwise('login');
         $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
     }
 

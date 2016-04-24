@@ -41,11 +41,11 @@
         }
 
         function logout() {
-            return $resource('./logout', {}, {
+            return $resource('./api/logout', {}, {
                 execute: {
                     method: 'GET'
                 }
-            }).execute().$promise
+            }).execute().$promise 
                 .then(success)
                 .catch(fail);
 

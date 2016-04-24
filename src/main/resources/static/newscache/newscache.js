@@ -17,5 +17,8 @@
             'newscache.templates'
         ])
         .config(['$locationProvider', function ($locationProvider) {
-        }]);
+        }])
+        .run(function($rootScope, $location) {
+            $rootScope.location = $location;
+        });
 }());

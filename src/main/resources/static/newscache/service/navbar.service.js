@@ -49,8 +49,7 @@
                 .catch(fail);
 
             function success(data) {
-                console.log(data);
-                $location.path('/interest').search({param: data.name});
+                return data;
             }
 
             function fail (error) {

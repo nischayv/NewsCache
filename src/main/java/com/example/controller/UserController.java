@@ -21,11 +21,6 @@ public class UserController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-//    @RequestMapping(value = "/logout", method = RequestMethod.GET)
-//    public ResponseEntity<?> logout() {
-//        return new ResponseEntity<>(HttpStatus.OK);
-//    }
-
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     public ResponseEntity<?> user(Principal user) {
         return new ResponseEntity<>(user, HttpStatus.OK);

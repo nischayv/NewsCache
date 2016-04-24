@@ -16,7 +16,7 @@
         activate();
 
         function activate() {
-            console.log(SessionService.isLoggedIn());
+            // console.log(SessionService.isLoggedIn());
         }
 
     }

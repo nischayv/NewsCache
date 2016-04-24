@@ -67,7 +67,7 @@
 
 </head>
 <body>
-<div navbar-directive></div>
+<navbar-directive ng-if="location.path() !== '/login'"></navbar-directive>
 <div class="view-container">
     <div ng-view class="view-frame"></div>
 </div>

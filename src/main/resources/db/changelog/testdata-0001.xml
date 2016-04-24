@@ -106,13 +106,61 @@
             <column name="title">'Star Wars' Episode VIII is going to be completely unlike 'Force Awakens' according to stars	</column>
             <column name="interestName">Star Wars</column>
         </insert>
+        <insert tableName="story">
+            <column name="id">105</column>
+            <column name="url">http://geekologie.com/2016/04/star-wars-ships-reimagined-as-cartoon-mo.php</column>
+            <column name="iurl">http://geekologie.com/2016/04/22/star-wars-ship-monsters-1.jpg	</column>
+            <column name="description">These are the Star Wars spaceships reimagined as giant cartoon monsters by artist Jake Parker (print available HERE ). They kind of remind me ...	</column>
+            <column name="title">Star Wars Ships Reimagined As Cartoon Monsters	</column>
+            <column name="interestName">Star Wars</column>
+        </insert>
+        <insert tableName="story">
+            <column name="id">106</column>
+            <column name="url">http://io9.gizmodo.com/george-lucas-wild-theory-about-the-narrator-of-star-war-1772296162	</column>
+            <column name="iurl">https://i.kinja-img.com/gawker-media/image/upload/s--Me8-bJS---/c_fit,fl_progressive,q_80,w_636/b9b6emi78bpete909vc9.jpg	</column>
+            <column name="description">We all know who the main characters of George Lucas’ six Star Wars films are: Anakin Skywalker, his son and daughter, and their friends. But ...	</column>
+            <column name="title">George Lucas' Wild Theory About the Narrator of Star Wars Makes So Much Sense	</column>
+            <column name="interestName">Star Wars</column>
+        </insert>
+        <insert tableName="story">
+            <column name="id">107</column>
+            <column name="url">http://bgr.com/2016/04/22/star-wars-episode-viii-plot-leak/	</column>
+            <column name="iurl">https://boygeniusreport.files.wordpress.com/2016/01/star-wars-tfa-hi-res-rey-meets-bb-8.jpg?w=610	</column>
+            <column name="description">Someone had to do it: I read the supposedly leaked Star Wars Episode VIII plot so you don’t have to. Assuming the leak is genuine and someone ...	</column>
+            <column name="title">Purported ‘Star Wars Episode VIII’ plot leaks, and I really hope it’s fake	</column>
+            <column name="interestName">Star Wars</column>
+        </insert>
+        <insert tableName="story">
+            <column name="id">108</column>
+            <column name="url">http://www.ubergizmo.com/2016/04/alleged-star-wars-ep-8-script-leaked/	</column>
+            <column name="iurl">http://cdn2.ubergizmo.com/wp-content/uploads/2016/01/star-wars-rey-finn-640x427.jpg	</column>
+            <column name="description">While Star Wars: Episode VIII has been delayed to December 2017 , the good news is that principal photography for the movie has begun , meaning ...	</column>
+            <column name="title">Alleged Star Wars: Episode VIII Script Leaked	</column>
+            <column name="interestName">Star Wars</column>
+        </insert>
+        <insert tableName="story">
+            <column name="id">109</column>
+            <column name="url">http://www.techeblog.com/index.php/tech-gadget/these-are-not-star-wars-toys-just-functional-x-wing-and-tie-fighter-pens	</column>
+            <column name="iurl">http://media.techeblog.com/images/star-wars-pens.jpg	</column>
+            <column name="description">The Star Wars universe comprises of countless items, but you'll only find 1,977 (each) X-Wing and TIE Fighter fountain pens from S.T. Dupont ...	</column>
+            <column name="title">These are Not Star Wars Toys, Just Functional X-Wing and TIE Fighter Pens	</column>
+            <column name="interestName">Star Wars</column>
+        </insert>
+        <insert tableName="story">
+            <column name="id">110</column>
+            <column name="url">https://www.dnainfo.com/new-york/20160422/lower-east-side/you-can-now-buy-t-shirts-of-political-candidates-as-star-wars-characters	</column>
+            <column name="iurl">https://assets.dnainfo.com/generated/photo/2016/04/img0024-1461358148.jpg/extralarge.jpg	</column>
+            <column name="description">... is still strong with political street art in the Lower East Side, where a Brooklyn-based artist is hawking T-shirts emblazoned with "Star Wars" ...	</column>
+            <column name="title">You Can Now Buy T-Shirts of Political Candidates as 'Star Wars' Characters	</column>
+            <column name="interestName">Star Wars</column>
+        </insert>
         <!--<insert tableName="story">-->
-            <!--<column name="id">105</column>-->
-            <!--<column name="url">http://www.justjared.com/2016/04/19/prince-william-prince-harry-have-lightsaber-fight-meet-star-wars-cast-characters/	</column>-->
-            <!--<column name="iurl">http://cdn04.cdn.justjared.com/wp-content/uploads/headlines/2016/04/prince-harry-prince-william-star-wars-set-visit.jpg	</column>-->
-            <!--<column name="description">Prince William and Prince Harry engaged in a playful light saber fight on the set of Star Wars on Tuesday (April 19) at Pinewood Studios in Iver ...	</column>-->
-            <!--<column name="title">Prince William & Prince Harry Have Lightsaber Fight, Meet 'Star Wars' Cast & Characters!	</column>-->
-            <!--<column name="interestName">Star Wars</column>-->
+        <!--<column name="id">107</column>-->
+        <!--<column name="url"> http://www.justjared.com/2016/04/19/prince-william-prince-harry-have-lightsaber-fight-meet-star-wars-cast-characters/	</column>-->
+        <!--<column name="iurl"> http://cdn04.cdn.justjared.com/wp-content/uploads/headlines/2016/04/prince-harry-prince-william-star-wars-set-visit.jpg	</column>-->
+        <!--<column name="description"> Prince William and Prince Harry engaged in a playful light saber fight on the set of Star Wars on Tuesday (April 19) at Pinewood Studios in Iver ...	</column>-->
+        <!--<column name="title"> Prince William & Prince Harry Have Lightsaber Fight, Meet 'Star Wars' Cast & Characters!	</column>-->
+        <!--<column name="interestName">Star Wars</column>-->
         <!--</insert>-->
         <insert tableName="comment">
             <column name="id">100</column>

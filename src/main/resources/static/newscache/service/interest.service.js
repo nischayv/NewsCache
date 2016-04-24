@@ -15,7 +15,6 @@
         return {
             findInterest: findInterest,
             loadStories: getStories
-            //saveStories: saveStories
         };
 
         function findInterest(data) {

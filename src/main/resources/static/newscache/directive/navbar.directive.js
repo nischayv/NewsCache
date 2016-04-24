@@ -13,7 +13,7 @@
     function NavbarDirective($location) {
         return {
             restrict: 'AE',
-            templateUrl: 'newscache/template/navbar.html',
+            templateUrl:  'newscache/template/navbar.html',
             controller: 'NavbarController',
             controllerAs: 'vm'
         };

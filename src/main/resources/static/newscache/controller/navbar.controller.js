@@ -3,35 +3,37 @@
 
     angular
         .module('newscache.controller.navbar', [
-            'newscache.session.service',
             'newscache.navbar.service',
+            'newscache.session.service'
         ])
         .controller('NavbarController', NavbarController);
 
-    NavbarController.$inject = ['NavbarService', '$q', '$scope', '$location', 'SessionService'];
+    NavbarController.$inject = ['NavbarService', '$location', 'SessionService'];
 
-    function NavbarController(NavbarService, $q, $scope, $location, SessionService) {
+    function NavbarController(NavbarService, $location, SessionService) {
         var vm = this;
         vm.startsWith = startsWith;
         vm.search = findInterest;
         vm.logout = logout;
+        // vm.isActive = isActive;
         vm.interest = ''; 
         vm.interestList = [];
         vm.errors = {};
-        vm.visible = true;
         activate();
 
         function activate() {
-            if(!loginPath()) {
-                return loadAllInterests()
-                    .then(function() {
-                        console.log('Loaded the interests');
-                    })
-                    .catch(function() {
-                        console.log('Error loading interests');
-                    });
-            }
+            return loadAllInterests()
+                .then(function() {
+                    console.log('Loaded the interests');
+                })
+                .catch(function() {
+                    console.log('Error loading interests');
+                });
         }
+
+        // function isActive(viewLocation) {
+        //     return viewLocation === $location.path();
+        // }
 
         function loadAllInterests() {
             return NavbarService.loadInterests()
@@ -46,29 +48,12 @@
         function logout() {
             return SessionService.logout()
                 .then(function () {
-                    $location.path('/login');
+                    vm.interestList = [];
+                    return $location.path('/login');
                 })
                 .catch(function (error) {
                     vm.errors = error;
                 });
-        }
-
-        $scope.$watch( '$location.path()', function() {
-            if(loginPath()) {
-                vm.visible = false;
-            }
-            else {
-                vm.visible = true;
-            }
-        });
-
-        function loginPath() {
-            if(angular.equals($location.path() , '/login')) {
-                return true;
-            }
-            else {
-                return false;
-            }
         }
 
         function startsWith (interest, viewValue) {
@@ -77,6 +62,9 @@
 
         function findInterest () {
             return NavbarService.findInterest(vm.interest)
+                .then(function(data) {
+                    return $location.path('/interest').search({param: data.name});
+                })
                 .catch(function(error) {
                     vm.errors = error;
                 });

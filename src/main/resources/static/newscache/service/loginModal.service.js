@@ -17,7 +17,7 @@
         };
 
         function saveUser(user) {
-            return $resource('./api/register', {}, {
+            return $resource('./user/register', {}, {
                 execute: {
                     method: 'POST'
                 }

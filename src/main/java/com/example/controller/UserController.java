@@ -19,9 +19,6 @@ import java.util.List;
 @RequestMapping(value = "/api/")
 public class UserController {
 
-    @Autowired
-    UserService userService;
-
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ResponseEntity<?> login() {
         return new ResponseEntity<>(HttpStatus.OK);
@@ -32,9 +29,5 @@ public class UserController {
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/register", method = RequestMethod.GET)
-    public ResponseEntity<?> register(UserDto userDto) {
-        User user = userService.saveAsUser(userDto);
-        return new ResponseEntity<>(user, HttpStatus.OK);
-    }
+
 }

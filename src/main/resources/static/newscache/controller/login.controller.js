@@ -4,17 +4,19 @@
 
     angular
         .module('newscache.controller.login', [
-            'newscache.login.service',
-            'newscache.session.service'
+            'newscache.service.login',
+            'newscache.service.session'
         ])
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['LoginService', 'SessionService'];
+    LoginController.$inject = ['LoginService', 'SessionService', '$uibModal'];
 
-    function LoginController(LoginService, SessionService) {
+    function LoginController(LoginService, SessionService, $uibModal) {
         var vm = this;
         vm.username = '';
         vm.password = '';
+        vm.loginModal = {};
+        vm.loginPopUp = loginPopUp;
         vm.submit = submit;
         activate();
         
@@ -30,5 +32,13 @@
             console.log(SessionService.isLoggedIn());
         }
 
+        function loginPopUp() {
+            vm.loginModal = $uibModal.open({
+                templateUrl: 'newscache/template/loginModal.html',
+                controller: 'LoginModalController',
+                controllerAs: 'vm',
+                animation: true
+            });
+        }
     }
 }());

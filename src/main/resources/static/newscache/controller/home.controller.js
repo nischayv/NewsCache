@@ -3,8 +3,8 @@
 
     angular
         .module('newscache.controller.home', [
-            'newscache.home.service',
-            'newscache.session.service'
+            'newscache.service.home',
+            'newscache.service.session'
         ])
         .controller('HomeController', HomeController);
 

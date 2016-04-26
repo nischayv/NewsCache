@@ -3,14 +3,13 @@
 
     angular
         .module('newscache.controller.interest', [
-            'newscache.service.interest',
-            'newscache.controller.navbar'
+            'newscache.service.interest'
         ])
         .controller('InterestController', InterestController);
 
-    InterestController.$inject = ['InterestService', '$q', '$location', '$routeParams', '$uibModal', 'SessionService'];
+    InterestController.$inject = ['InterestService', '$q', '$location', '$routeParams', '$uibModal'];
 
-    function InterestController(InterestService, $q, $location, $routeParams, $uibModal,SessionService) {
+    function InterestController(InterestService, $q, $location, $routeParams, $uibModal) {
         var vm = this;
         vm.interestName = $routeParams.param;
         vm.interest = {};

@@ -10,4 +10,5 @@ import javax.transaction.Transactional;
 @Repository
 @Transactional
 public interface SecurityCredentialRepo extends JpaRepository<SecurityCredential, Long> {
+    SecurityCredential findByAuthority(String authority);
 }

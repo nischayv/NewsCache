@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('newscache.navbar.service', [
+        .module('newscache.service.navbar', [
             'ngResource'
         ])
         .factory('NavbarService', NavbarService);

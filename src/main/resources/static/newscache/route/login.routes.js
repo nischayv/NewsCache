@@ -9,16 +9,16 @@
         ])
         .config(config);
 
-    config.$inject = ['$routeProvider', '$httpProvider', '$cookiesProvider'];
+    config.$inject = ['$routeProvider', '$httpProvider'];
 
-    function config($routeProvider, $httpProvider, $cookiesProvider) {
+    function config($routeProvider, $httpProvider) {
         $routeProvider
             .when('/login', {
                 templateUrl: 'newscache/template/login.html',
                 controller: 'LoginController',
                 controllerAs: 'vm'
             })
-            .otherwise('login');
+            .otherwise('/login');
         $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
     }
 

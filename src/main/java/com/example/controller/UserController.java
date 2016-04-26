@@ -1,8 +1,11 @@
 package com.example.controller;
 
+import com.example.dto.UserDto;
 import com.example.entity.Interest;
+import com.example.entity.User;
 import com.example.service.interfaces.ApiService;
 import com.example.service.interfaces.InterestService;
+import com.example.service.interfaces.UserService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,6 +19,9 @@ import java.util.List;
 @RequestMapping(value = "/api/")
 public class UserController {
 
+    @Autowired
+    UserService userService;
+
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ResponseEntity<?> login() {
         return new ResponseEntity<>(HttpStatus.OK);
@@ -23,6 +29,12 @@ public class UserController {
 
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     public ResponseEntity<?> user(Principal user) {
+        return new ResponseEntity<>(user, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/register", method = RequestMethod.GET)
+    public ResponseEntity<?> register(UserDto userDto) {
+        User user = userService.saveAsUser(userDto);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 }

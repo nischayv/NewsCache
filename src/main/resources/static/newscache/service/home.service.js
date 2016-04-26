@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('newscache.home.service', [
+        .module('newscache.service.home', [
             'ngResource'
         ])
         .factory('HomeService', HomeService);

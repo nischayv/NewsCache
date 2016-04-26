@@ -3,8 +3,8 @@
 
     angular
         .module('newscache.controller.navbar', [
-            'newscache.navbar.service',
-            'newscache.session.service'
+            'newscache.service.navbar',
+            'newscache.service.session'
         ])
         .controller('NavbarController', NavbarController);
 

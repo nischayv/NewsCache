@@ -2,29 +2,26 @@
     'use strict';
 
     angular
-        .module('newscache.controller.storyModal', [])
+        .module('newscache.controller.storyModal', [
+            'newscache.service.storyModal',
+            'newscache.service.session'
+        ])
         .controller('StoryModalController', StoryModalController);
 
-    StoryModalController.$inject = ['$uibModalInstance', 'story', 'StoryModalService', '$scope', '$stomp'];
+    StoryModalController.$inject = ['$uibModalInstance', 'story', 'StoryModalService', '$scope', '$stomp', 'SessionService', '$q'];
 
-    function StoryModalController($storyModal, story, StoryModalService, $scope, $stomp) {
+    function StoryModalController($storyModal, story, StoryModalService, $scope, $stomp, SessionService, $q) {
         var vm = this;
         vm.story = story;
         vm.storyComment = '';
         vm.comments = [];
-        vm.username = 'nischayv';
+        vm.user = {};
+        vm.username = '';
         vm.storyTitle = '';
         vm.commentDto = {storyTitle:'', username:'', storyComment:''};
         vm.closeStory = closeStory;
         vm.save = saveComment;
         activate();
-        //retrieve();
-        //
-        //function retrieve() {
-        //    vm.pull = $interval(function () {
-        //    activate();
-        //    }, 1000);
-        //}
 
         $stomp
             .connect('/newscache/stomp')
@@ -36,9 +33,22 @@
             });
 
         function activate() {
+            console.log(vm.user);
             return loadComments()
                 .then(function() {
                     console.log('loaded the comments');
+                    return $q.resolve();
+                })
+                .then(function() {
+                    return SessionService.getCurrentUser()
+                        .then(function(data) {
+                            vm.user = data;
+                            vm.username = vm.user.principal.username;
+                            console.log('vm.user', vm.username);
+                        })
+                        .catch(function(error) {
+                            console.log(error);
+                        });
                 })
                 .catch(function(error) {
                     console.log(error);
@@ -60,19 +70,12 @@
             vm.commentDto.storyComment = vm.storyComment;
             vm.commentDto.username =  vm.username;
             return StoryModalService.saveComment(vm.commentDto)
-                //.then(function() {
-                  // vm.comments.push(data);
-                   //$scope.compile();
-                //})
                 .catch(function(error) {
                     console.log(error);
                 });
         }
 
         function closeStory() {
-            //if (angular.isDefined(vm.pull)) {
-            //    $interval.cancel(vm.pull);
-            //}
             $storyModal.close('ok');
         }
     }

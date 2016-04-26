@@ -2,9 +2,9 @@
     'use strict';
 
     angular
-        .module('newscache.login.service', [
+        .module('newscache.service.login', [
             'ngResource',
-            'newscache.session.service'
+            'newscache.service.session'
         ])
         .factory('LoginService', LoginService);
 

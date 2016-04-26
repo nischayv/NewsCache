@@ -16,12 +16,11 @@
         ])
         .config(['$locationProvider', function ($locationProvider) {
         }])
-        .run(function($rootScope, $location, SessionService) {
-            $rootScope.location = $location;
-            $rootScope.$on( "$routeChangeStart", function() {
-                if(SessionService.isLoggedIn() !== true){
-                    $location.path('/login').search('');
-                }
-            });
-        });
+        .run(runBlock);
+
+    runBlock.$inject = ['AuthService'];
+
+    function runBlock(AuthService) {
+        AuthService.initialize();
+    } 
 }());

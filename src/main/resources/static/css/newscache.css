@@ -183,6 +183,7 @@
 .forgot-password:active,
 .forgot-password:focus{
     color: rgb(12, 97, 33);
+    cursor: pointer;
 }
 
 .login-wrapper{

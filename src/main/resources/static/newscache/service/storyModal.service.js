@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('newscache.storyModal.service', [
+        .module('newscache.service.storyModal', [
             'ngResource'
         ])
         .factory('StoryModalService', StoryModalService);

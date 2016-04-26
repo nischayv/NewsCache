@@ -58,6 +58,16 @@ public class UserServiceImpl implements UserService, UserDetailsService{
     }
 
     @Override
+    public User save(User user) {
+        if(user != null) {
+            return userRepo.save(user);
+        }
+        else {
+            return null;
+        }
+    }
+
+    @Override
     public User saveAsUser(UserDto userDto) {
         SecurityCredential securityCredential = securityCredentialRepo.findByAuthority("user");
         User user = new User(userDto.getFirstName(), userDto.getLastName(), userDto.getEmail(), userDto.getUsername(), passwordEncoder.encode(userDto.getPassword()));
@@ -69,8 +79,13 @@ public class UserServiceImpl implements UserService, UserDetailsService{
         user.setUserSecurityCredentials(userSecurityCredentialList);
         userRepo.save(user);
         userSecurityCredentialRepo.save(userSecurityCredential);
-
-
         return user;
+    }
+
+    @Override
+    public void delete(User user){
+        if(user != null){
+            userRepo.delete(user);
+        }
     }
 }

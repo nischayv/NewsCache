@@ -154,13 +154,53 @@
             <column name="title">You Can Now Buy T-Shirts of Political Candidates as 'Star Wars' Characters	</column>
             <column name="interestName">Star Wars</column>
         </insert>
+        <insert tableName="story">
+            <column name="id">111</column>
+            <column name="url">http://www.adweek.com/socialtimes/ea-brings-guilds-guild-raids-to-star-wars-galaxy-of-heroes/638468	</column>
+            <column name="iurl">http://www.adweek.com/socialtimes/wp-content/uploads/sites/2/2016/04/Star-Wars-Galaxy-of-Heroes-Guilds.jpg	</column>
+            <column name="description">Electronic Arts launched a new content update for Star Wars: Galaxy of Heroes on mobile devices, introducing guilds, guild raids and new characters ...	</column>
+            <column name="title">EA Brings Guilds, Guild Raids to Star Wars: Galaxy of Heroes	</column>
+            <column name="interestName">Star Wars</column>
+        </insert>
         <!--<insert tableName="story">-->
-        <!--<column name="id">107</column>-->
-        <!--<column name="url"> http://www.justjared.com/2016/04/19/prince-william-prince-harry-have-lightsaber-fight-meet-star-wars-cast-characters/	</column>-->
-        <!--<column name="iurl"> http://cdn04.cdn.justjared.com/wp-content/uploads/headlines/2016/04/prince-harry-prince-william-star-wars-set-visit.jpg	</column>-->
-        <!--<column name="description"> Prince William and Prince Harry engaged in a playful light saber fight on the set of Star Wars on Tuesday (April 19) at Pinewood Studios in Iver ...	</column>-->
-        <!--<column name="title"> Prince William & Prince Harry Have Lightsaber Fight, Meet 'Star Wars' Cast & Characters!	</column>-->
-        <!--<column name="interestName">Star Wars</column>-->
+            <!--<column name="id">107</column>-->
+            <!--<column name="url"> http://www.justjared.com/2016/04/19/prince-william-prince-harry-have-lightsaber-fight-meet-star-wars-cast-characters/	</column>-->
+            <!--<column name="iurl"> http://cdn04.cdn.justjared.com/wp-content/uploads/headlines/2016/04/prince-harry-prince-william-star-wars-set-visit.jpg	</column>-->
+            <!--<column name="description"> Prince William and Prince Harry engaged in a playful light saber fight on the set of Star Wars on Tuesday (April 19) at Pinewood Studios in Iver ...	</column>-->
+            <!--<column name="title"> Prince William & Prince Harry Have Lightsaber Fight, Meet 'Star Wars' Cast & Characters!	</column>-->
+            <!--<column name="interestName">Star Wars</column>-->
+        <!--</insert>-->
+        <!--<insert tableName="story">-->
+            <!--<column name="id">107</column>-->
+            <!--<column name="url"> http://www.justjared.com/2016/04/19/prince-william-prince-harry-have-lightsaber-fight-meet-star-wars-cast-characters/	</column>-->
+            <!--<column name="iurl"> http://cdn04.cdn.justjared.com/wp-content/uploads/headlines/2016/04/prince-harry-prince-william-star-wars-set-visit.jpg	</column>-->
+            <!--<column name="description"> Prince William and Prince Harry engaged in a playful light saber fight on the set of Star Wars on Tuesday (April 19) at Pinewood Studios in Iver ...	</column>-->
+            <!--<column name="title"> Prince William & Prince Harry Have Lightsaber Fight, Meet 'Star Wars' Cast & Characters!	</column>-->
+            <!--<column name="interestName">Star Wars</column>-->
+        <!--</insert>-->
+        <!--<insert tableName="story">-->
+            <!--<column name="id">107</column>-->
+            <!--<column name="url"> http://www.justjared.com/2016/04/19/prince-william-prince-harry-have-lightsaber-fight-meet-star-wars-cast-characters/	</column>-->
+            <!--<column name="iurl"> http://cdn04.cdn.justjared.com/wp-content/uploads/headlines/2016/04/prince-harry-prince-william-star-wars-set-visit.jpg	</column>-->
+            <!--<column name="description"> Prince William and Prince Harry engaged in a playful light saber fight on the set of Star Wars on Tuesday (April 19) at Pinewood Studios in Iver ...	</column>-->
+            <!--<column name="title"> Prince William & Prince Harry Have Lightsaber Fight, Meet 'Star Wars' Cast & Characters!	</column>-->
+            <!--<column name="interestName">Star Wars</column>-->
+        <!--</insert>-->
+        <!--<insert tableName="story">-->
+            <!--<column name="id">107</column>-->
+            <!--<column name="url"> http://www.justjared.com/2016/04/19/prince-william-prince-harry-have-lightsaber-fight-meet-star-wars-cast-characters/	</column>-->
+            <!--<column name="iurl"> http://cdn04.cdn.justjared.com/wp-content/uploads/headlines/2016/04/prince-harry-prince-william-star-wars-set-visit.jpg	</column>-->
+            <!--<column name="description"> Prince William and Prince Harry engaged in a playful light saber fight on the set of Star Wars on Tuesday (April 19) at Pinewood Studios in Iver ...	</column>-->
+            <!--<column name="title"> Prince William & Prince Harry Have Lightsaber Fight, Meet 'Star Wars' Cast & Characters!	</column>-->
+            <!--<column name="interestName">Star Wars</column>-->
+        <!--</insert>-->
+        <!--<insert tableName="story">-->
+            <!--<column name="id">107</column>-->
+            <!--<column name="url"> http://www.justjared.com/2016/04/19/prince-william-prince-harry-have-lightsaber-fight-meet-star-wars-cast-characters/	</column>-->
+            <!--<column name="iurl"> http://cdn04.cdn.justjared.com/wp-content/uploads/headlines/2016/04/prince-harry-prince-william-star-wars-set-visit.jpg	</column>-->
+            <!--<column name="description"> Prince William and Prince Harry engaged in a playful light saber fight on the set of Star Wars on Tuesday (April 19) at Pinewood Studios in Iver ...	</column>-->
+            <!--<column name="title"> Prince William & Prince Harry Have Lightsaber Fight, Meet 'Star Wars' Cast & Characters!	</column>-->
+            <!--<column name="interestName">Star Wars</column>-->
         <!--</insert>-->
         <insert tableName="comment">
             <column name="id">100</column>
@@ -185,6 +225,19 @@
             <column name="userComment">Yolo</column>
             <column name="story_id">100</column>
             <column name="user_id">101</column>
+        </insert>
+        <!--Each Users interests-->
+        <insert tableName="user_interest">
+            <column name="user_id">100</column>
+            <column name="interest_id">100</column>
+        </insert>
+        <insert tableName="user_interest">
+            <column name="user_id">100</column>
+            <column name="interest_id">101</column>
+        </insert>
+        <insert tableName="user_interest">
+            <column name="user_id">100</column>
+            <column name="interest_id">102</column>
         </insert>
     </changeSet>
 

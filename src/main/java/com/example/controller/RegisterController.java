@@ -17,7 +17,7 @@ public class RegisterController {
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public ResponseEntity<?> register(@RequestBody UserDto userDto) {
-        User user = userService.saveAsUser(userDto);
-        return new ResponseEntity<>(user, HttpStatus.OK);
+        userService.saveAsUser(userDto);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

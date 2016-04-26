@@ -18,6 +18,7 @@ public class User implements java.io.Serializable, UserDetails {
     private String email;
     private String username;
     private String password;
+    private List<Interest> interestList;
     @JsonIgnore
     private List<Comment> comments;
     @JsonIgnore
@@ -26,6 +27,7 @@ public class User implements java.io.Serializable, UserDetails {
     public User() {
         comments = new LinkedList<>();
         userSecurityCredentials = new LinkedList<>();
+        interestList = new LinkedList<>();
     }
 
     public User(String firstName, String lastName, String email, String username, String password) {
@@ -106,7 +108,7 @@ public class User implements java.io.Serializable, UserDetails {
         this.comments = comments;
     }
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     public List<UserSecurityCredential> getUserSecurityCredentials() {
         return userSecurityCredentials;
     }
@@ -114,6 +116,20 @@ public class User implements java.io.Serializable, UserDetails {
     public void setUserSecurityCredentials(List<UserSecurityCredential> userSecurityCredentials) {
         this.userSecurityCredentials = userSecurityCredentials;
     }
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "user_interest", joinColumns = {
+            @JoinColumn(name = "user_id", nullable = false, updatable = false) },
+            inverseJoinColumns = { @JoinColumn(name = "interest_id",
+                    nullable = false, updatable = false) })
+    public List<Interest> getInterestList() {
+        return this.interestList;
+    }
+
+    public void setInterestList(List<Interest> interestList) {
+        this.interestList = interestList;
+    }
+
     @Override
     @Transient
     public List<UserSecurityCredential> getAuthorities() {

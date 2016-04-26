@@ -14,7 +14,9 @@
 
         return {
             findInterest: findInterest,
-            loadStories: getStories
+            loadStories: getStories,
+            follow: follow,
+            unfollow: unfollow
         };
 
         function findInterest(data) {
@@ -43,6 +45,44 @@
                     isArray: true
                 }
             }).execute().$promise
+                .then(success)
+                .catch(fail);
+
+            function success(data) {
+                return data;
+            }
+
+            function fail (error) {
+                console.log(error);
+                return $q.reject(error);
+            }
+        }
+
+        function follow(subscribeDto) {
+            return $resource('./api/interest/follow', {}, {
+                execute: {
+                    method: 'POST'
+                }
+            }).execute(subscribeDto).$promise
+                .then(success)
+                .catch(fail);
+
+            function success(data) {
+                return data;
+            }
+
+            function fail (error) {
+                console.log(error);
+                return $q.reject(error);
+            }
+        }
+
+        function unfollow(subscribeDto) {
+            return $resource('./api/interest/unfollow', {}, {
+                execute: {
+                    method: 'POST'
+                }
+            }).execute(subscribeDto).$promise
                 .then(success)
                 .catch(fail);
 

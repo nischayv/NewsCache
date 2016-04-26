@@ -28,4 +28,14 @@ public class InterestServiceImpl implements InterestService{
     public Interest findByName(String name) {
         return interestRepo.findByName(name);
     }
+
+    @Override
+    public Interest save(Interest interest) {
+        if(interest != null){
+            return interestRepo.save(interest);
+        }
+        else {
+            return null;
+        }
+    }
 }

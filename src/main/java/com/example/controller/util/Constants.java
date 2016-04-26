@@ -4,7 +4,7 @@ package com.example.controller.util;
 public class Constants {
 
     //TODO Encrypt the key. Very unsafe manner to have the key.
-    private static final String farooKey = "AjFzRJttLvOXBpb3BLsR@Qq-yp8_";
+    private static final String farooKey = "tCW9Wy@SSgRqeZ-FhUa02fqdI8c_";
     private static final String farooUrl  = "http://www.faroo.com/api?q={interestName}&start=1&length=10&l=en&src=news&i=false&f=json&key={key}";
 
     public static String getFarooKey() {

@@ -123,6 +123,22 @@
                           startWith="100"
                           tableName="user_security_credential"/>
 
+        <createTable tableName="user_interest">
+            <column name="user_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+            <column name="interest_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint constraintName="fk_interest"
+                                 baseTableName="user_interest" baseColumnNames="interest_id"
+                                 referencedTableName="interest" referencedColumnNames="id" />
+        <addForeignKeyConstraint constraintName="fk_user"
+                                 baseTableName="user_interest" baseColumnNames="user_id"
+                                 referencedTableName="user" referencedColumnNames="id"/>
+
     </changeSet>
 
 </databaseChangeLog>

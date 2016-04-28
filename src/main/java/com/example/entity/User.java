@@ -160,6 +160,7 @@ public class User implements java.io.Serializable, UserDetails {
         return true;
     }
 
+    @Override
     public boolean equals(Object object) throws ClassCastException{
         if(object instanceof User){
             User user = (User) object;

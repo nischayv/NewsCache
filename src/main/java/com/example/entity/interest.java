@@ -49,4 +49,19 @@ public class Interest implements java.io.Serializable{
     public void setUserList(List<User> userList) {
         this.userList = userList;
     }
+
+    @Override
+    public boolean equals(Object object) throws ClassCastException{
+        if(object instanceof Interest){
+            Interest user = (Interest) object;
+            if(this.getId().equals(user.getId())){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        return false;
+
+    }
 }

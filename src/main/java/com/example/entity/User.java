@@ -160,4 +160,18 @@ public class User implements java.io.Serializable, UserDetails {
         return true;
     }
 
+    public boolean equals(Object object) throws ClassCastException{
+        if(object instanceof User){
+            User user = (User) object;
+            if(this.getId().equals(user.getId())){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        return false;
+
+    }
+
 }

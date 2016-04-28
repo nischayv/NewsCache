@@ -47,10 +47,9 @@ public class InterestController {
     public ResponseEntity<?> unfollow(@RequestBody SubscribeDto subscribeDto) throws JsonProcessingException {
         User user = userService.findByUsername(subscribeDto.getUsername());
         Interest interest = interestService.findByName(subscribeDto.getInterestName());
-//        userService.delete(user);
         List<User> users = interest.getUserList();
         for(int i = 0; i < users.size(); i++) {
-            if(users.get(i).getId() == user.getId()) {
+            if(users.get(i).equals(user)) {
                 users.remove(i);
                 break;
             }
@@ -58,7 +57,7 @@ public class InterestController {
         interest.setUserList(users);
         List<Interest> interests = user.getInterestList();
         for(int i = 0; i < interests.size(); i++) {
-            if(interests.get(i).getId() == interest.getId()) {
+            if(interests.get(i).equals(interest)) {
                 interests.remove(i);
                 break;
             }

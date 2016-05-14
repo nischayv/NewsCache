@@ -233,7 +233,7 @@
         </insert>
         <insert tableName="user_interest">
             <column name="user_id">100</column>
-            <column name="interest_id">101</column>
+            <column name="interest_id">105</column>
         </insert>
         <insert tableName="user_interest">
             <column name="user_id">100</column>

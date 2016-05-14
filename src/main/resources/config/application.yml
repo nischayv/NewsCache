@@ -42,7 +42,7 @@ liquibase:
     changeLog: classpath:/db/master.xml
 
 resources:
-    projectRoot: Users/nischay/IdeaProjects/G02_NewsCache/
+    projectRoot: Users/Nischay/IdeaProjects/NewsCache/NewsCache
 
 app:
     version: 0.0.1

@@ -1,7 +1,9 @@
 package com.example.controller;
 
+import com.example.dto.InterestDtoList;
 import com.example.dto.SubscribeDto;
 import com.example.entity.Interest;
+import com.example.entity.Story;
 import com.example.entity.User;
 import com.example.service.interfaces.InterestService;
 import com.example.service.interfaces.StoryService;
@@ -65,5 +67,16 @@ public class InterestController {
         user.setInterestList(interests);
         userService.save(user);
         return new ResponseEntity<>(user, HttpStatus.OK);
+    }
+
+    @RequestMapping(value="/getPics/{username}", method = RequestMethod.GET)
+    public ResponseEntity<?> getPics(@PathVariable String username) {
+        User user = userService.findByUsername(username);
+        InterestDtoList interestDtoList = new InterestDtoList();
+        for(Interest interest: user.getInterestList()) {
+            List<Story> storyList = storyService.loadAllStories(interest.getName());
+            interestDtoList.add(interest.getName(), storyList.get(0).getIurl());
+        }
+        return new ResponseEntity<>(interestDtoList, HttpStatus.OK);
     }
 }

@@ -1,3 +1,6 @@
 <div class="container-fluid" style="padding-top: 70px">
-    <img id="interest" src="{{interest.src}}" class="img-responsive  col-md-3" ng-repeat="interest in vm.interestList">
+    <div id="interest" ng-repeat="interest in vm.interestList" id="interestBlock" ng-style="{'background-image':'url({{interest.src}})'}">
+        <!--<img id="interest" ng-src="{{interest.src}}" class="img-responsive  col-md-3" ng-mouseover="">-->
+        <button id="interestButton" class="btn btn-default">{{interest.interestName}}</button>
+    </div>
 </div>

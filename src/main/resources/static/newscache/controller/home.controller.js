@@ -8,12 +8,13 @@
         ])
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['HomeService', 'SessionService', '$q'];
+    HomeController.$inject = ['HomeService', 'SessionService', '$q', '$animate'];
 
-    function HomeController(HomeService, SessionService, $q) {
+    function HomeController(HomeService, SessionService, $q, $animate) {
         var vm = this;
         vm.user = {};
         vm.interestList = {};
+        vm.mouseover = false;
         vm.activate = activate;
         activate();
 

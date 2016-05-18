@@ -4,24 +4,21 @@
     margin-right: 5%;
 }
 
-#interestBlock{
-    position: relative;
-}
-
 #interest {
-    margin-left: 1%;
-    margin-right: 1%;
     margin-bottom: 2%;
     height: 300px;
-    width: 31%;
     text-align: center;
     background-repeat: no-repeat;
     background-size:cover;
-    background-position:center;
+    background-origin: content-box;
 }
 
 #interestButton{
-    position: relative;
+    margin-top: 40%;
+    border-color: white;
+    border-width: 2px;
+    background-color: #383838;
+    color: white;
 }
 
 .jumbotron{
@@ -210,10 +207,4 @@
     height: 100%;
     background-repeat: no-repeat;
     background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));
-}
-
-.thumbnail{
-    /*width: 20%;*/
-    height: 150px;
-    overflow: hidden;
 }

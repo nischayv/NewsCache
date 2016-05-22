@@ -6,9 +6,9 @@ The application makes use of Faroo's Rest API to crawl the web and gather all th
 All the back end is RESTful and is completely done using Spring. Security is handled using Spring Security on the backend. H2 in-memory
 database is used in the application. Liquibase is used for setting up mock data. I am using Web sockets/STOMP for having live updates in the application. The front end stack is angularJS
 with many additional libraries. These include SocksJS equivalent directives for live updates and cross browser communication and angular-masonry
-for cascading grid layouts on the interest pages to list all the stories. Even gulp is used in the project for live reload capabilities and
-minification. The application is unfortunately almost devoid of tests due to short amount of time taken in developing the application. Tests
-may come in later.
+for cascading grid layouts on the interest pages to list all the stories. Gulp is used in the project for live reload capabilities and
+minification. Gradle is used for build automation. The application is unfortunately almost devoid of tests due to short amount of time
+taken in developing the application. Tests may come in later.
 
 
 ### Steps to start developing or to run the project
@@ -36,7 +36,9 @@ may come in later.
  4. If we plan to write tests we have to use Karma, a test runner for javascript.
     Will add the stuff if needed.
 
- 5. If using Intellij you will have to go to the application.yml file and change the project root to the root of the project
+ 5. You will have to go to the application.yml file and change the project root to the root of the project
     on your local computer.
 
- 6. Run the application on localhost:8080/newscache/#/ in any web browser!!
+ 6. You will have to register for Faroo's API key and copy it into the FarooKey String variable in the constants Java class.
+
+ 7. Run the application on localhost:8080/newscache/#/ in any web browser!!

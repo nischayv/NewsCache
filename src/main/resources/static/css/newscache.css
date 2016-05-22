@@ -13,12 +13,22 @@
     background-origin: content-box;
 }
 
+#interest:hover{
+    background-image: url("/newscache/img/interestBlock.png");
+}
+
+#interest:hover > #interestButton{
+    visibility: visible;
+}
+
 #interestButton{
-    margin-top: 40%;
+    margin-top: 35%;
     border-color: white;
     border-width: 2px;
     background-color: #383838;
     color: white;
+    margin-left: 2%;
+    visibility: hidden;
 }
 
 .jumbotron{

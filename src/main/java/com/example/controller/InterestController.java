@@ -12,6 +12,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -42,6 +45,8 @@ public class InterestController {
         userService.save(user);
         interest.getUserList().add(user);
         interestService.save(interest);
+        Authentication authentication = new UsernamePasswordAuthenticationToken(user, user.getPassword(), user.getAuthorities());
+        SecurityContextHolder.getContext().setAuthentication(authentication);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
@@ -66,6 +71,8 @@ public class InterestController {
         }
         user.setInterestList(interests);
         userService.save(user);
+        Authentication authentication = new UsernamePasswordAuthenticationToken(user, user.getPassword(), user.getAuthorities());
+        SecurityContextHolder.getContext().setAuthentication(authentication);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 

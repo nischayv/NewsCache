@@ -3,8 +3,15 @@
 This is a web application that brings all the latest news that a person might be interested in together under one umbrella.
 The application makes use of Faroo's Rest API to crawl the web and gather all the news articles.
 
+All the back end is RESTful and is completely done using Spring. Security is handled using Spring Security on the backend. H2 in-memory
+database is used in the application. Liquibase is used for setting up mock data. I am using Web sockets/STOMP for having live updates in the application. The front end stack is angularJS
+with many additional libraries. These include SocksJS equivalent directives for live updates and cross browser communication and angular-masonry
+for cascading grid layouts on the interest pages to list all the stories. Even gulp is used in the project for live reload capabilities and
+minification. The application is unfortunately almost devoid of tests due to short amount of time taken in developing the application. Tests
+may come in later.
 
-### Steps to get started developing or to run the project
+
+### Steps to start developing or to run the project
 
  1. Install node.js
 

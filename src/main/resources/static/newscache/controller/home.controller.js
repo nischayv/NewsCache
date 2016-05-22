@@ -8,16 +8,14 @@
         ])
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['HomeService', 'SessionService', '$q'];
+    HomeController.$inject = ['HomeService', 'SessionService', '$q', '$location'];
 
-    function HomeController(HomeService, SessionService, $q) {
+    function HomeController(HomeService, SessionService, $q, $location) {
         var vm = this;
         vm.user = {};
         vm.interestList = {};
-        // vm.mouseover = false;
-        // vm.mouseEnter = mouseEnter;
-        // vm.mouseLeave = mouseLeave;
-        // vm.activate = activate;
+        vm.toInterestPage = toInterestPage;
+        vm.url = url;
         activate();
 
         function activate() {
@@ -41,12 +39,12 @@
                 });
         }
 
-        function mouseEnter() {
-            vm.mouseover = true;
+        function toInterestPage(interestName) {
+            $location.path('/interest').search({param: interestName});
         }
 
-        function mouseLeave() {
-            vm.mouseover = false;
+        function url(url) {
+            return 'url('+url+')';
         }
     }
 }());

@@ -8,9 +8,9 @@
         ])
         .controller('InterestController', InterestController);
 
-    InterestController.$inject = ['InterestService', '$q', '$location', '$routeParams', '$uibModal', 'SessionService'];
+    InterestController.$inject = ['InterestService', '$q', '$routeParams', '$uibModal', 'SessionService'];
 
-    function InterestController(InterestService, $q, $location, $routeParams, $uibModal, SessionService) {
+    function InterestController(InterestService, $q, $routeParams, $uibModal, SessionService) {
         var vm = this;
         vm.interestName = $routeParams.param;
         vm.interest = {};
@@ -27,9 +27,6 @@
         activate();
 
         function activate() {
-            // if(!SessionService.isLoggedIn()) {
-            //     $location.path('/login').search({param: ''});
-            // }
             return loadInterest()
                 .then(function () {
                     console.log('Loaded the interest');
@@ -82,17 +79,20 @@
             return SessionService.getCurrentUser()
                 .then(function (data) {
                     vm.user = data.principal;
+                    console.log(vm.user);
                     for(var i = 0; i < vm.user.interestList.length; i++) {
                         if(vm.user.interestList[i].name === vm.interestName) {
                             vm.subscribe = 'Unfollow';
-                            return;
+                            console.log('testUnfollow');
+                            return $q.resolve();
                         }
                     }
                     vm.subscribe = 'Follow';
-                    console.log(vm.user);
+                    console.log('testFollow');
                 })
                 .catch(function(error) {
                     vm.errors = error;
+                    // return $q.reject();
                 });
         }
 

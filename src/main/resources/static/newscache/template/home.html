@@ -1,8 +1,10 @@
 <div class="container-fluid" style="padding-top: 70px">
     <div id="interest" class="col-md-4 col-sm-6" ng-repeat="interest in vm.interestList"
-         ng-init="myStyle={'background-image': 'url(interest.src)'}"
+         ng-init="myStyle={'background-image': vm.url(interest.src)}"
          ng-style="myStyle" ng-mouseenter="myStyle={}"
-         ng-mouseleave="myStyle={'background-image': 'url(interest.src)'}">
-        <button id="interestButton" class="btn btn-default btn-lg" >{{interest.interestName}}</button>
+         ng-mouseleave="myStyle={'background-image': vm.url(interest.src)}">
+        <button id="interestButton" class="btn btn-default btn-lg" ng-click="vm.toInterestPage(interest.interestName)">
+            {{interest.interestName}}
+        </button>
     </div>
 </div>

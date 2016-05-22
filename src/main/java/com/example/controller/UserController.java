@@ -28,6 +28,4 @@ public class UserController {
     public ResponseEntity<?> user(Principal user) {
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
-
-
 }
